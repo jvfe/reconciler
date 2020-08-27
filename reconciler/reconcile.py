@@ -1,4 +1,5 @@
 from collections import defaultdict
+from functools import lru_cache
 import json
 import requests
 import pandas as pd
@@ -24,22 +25,57 @@ def get_query_dict(df_column):
     Returns:
         A dict with the column values reformatted.
     """
-    values = df_column.unique()
+    input_keys = df_column.unique()
     reformatted = defaultdict(dict)
 
-    for idx, value in enumerate(values):
+    for idx, value in enumerate(input_keys):
 
         reformatted[f"q{idx}"] = {"query": value}
 
-    return reformatted
+    return input_keys, reformatted
 
 
-def reconcile_column(df_column):
+@lru_cache(maxsize=32)
+def perform_query(query_string):
+
+    tries = 0
+    while tries < 3:
+        try:
+            response = requests.post(
+                "https://wikidata.reconci.link/en/api", data=json.loads(query_string)
+            )
+        except requests.ConnectionError:
+            tries += 1
+        else:
+            return response.json()
+    if tries == 3:
+        raise requests.ConnectionError("Couldn't connect to reconciliation client")
+
+
+def return_reconciled_raw(df_column):
     """Send reformatted dict for reconciliation"""
 
-    reformatted = get_query_dict(df_column)
-    reconcilable = {"queries": json.dumps(reformatted)}
+    input_keys, reformatted = get_query_dict(df_column)
+    reconcilable_data = json.dumps({"queries": json.dumps(reformatted)})
+    query_result = perform_query(reconcilable_data)
 
-    response = requests.post("https://wikidata.reconci.link/en/api", data=reconcilable)
+    return input_keys, query_result
 
-    return response.json()
+
+def reconcile(column_to_reconcile, top_res=1):
+
+    input_keys, response = return_reconciled_raw(column_to_reconcile)
+    res_keys = sorted(response.keys())
+
+    dfs = []
+    for idx, key in enumerate(res_keys):
+        current_df = pd.json_normalize(response[key]["result"])
+        current_df["input_value"] = input_keys[idx]
+        dfs.append(current_df)
+
+    full_df = pd.concat(dfs).drop(["features"], axis=1)
+    full_df["type"] = [item[0]["name"] for item in full_df["type"]]
+
+    filtered = full_df.groupby("input_value").head(top_res).reset_index(drop=True)
+
+    return filtered
