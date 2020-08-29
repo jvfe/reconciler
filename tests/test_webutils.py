@@ -1,7 +1,6 @@
+from reconciler.webutils import get_query_dict, perform_query, return_reconciled_raw
 import pandas as pd
 import json
-from reconciler.webutils import get_query_dict, perform_query
-import pytest
 
 test_df = pd.DataFrame(
     {
@@ -29,3 +28,10 @@ def test_perform_query():
     query_res = perform_query(query_string)
 
     assert len(query_res.keys()) == 4
+
+
+def test_return_raw_results():
+
+    input_keys, raw_res = return_reconciled_raw(test_df["City"], qid_type="Q515")
+
+    assert len(input_keys) and len(raw_res.keys()) == 4

@@ -1,4 +1,4 @@
-from .webutils import return_reconciled_raw
+from reconciler.webutils import return_reconciled_raw
 import numpy as np
 import pandas as pd
 
@@ -20,8 +20,11 @@ def parse_raw_results(input_keys, response):
                 }
             )
         else:
-            current_df["type_qid"] = [item[0]["id"] for item in current_df["type"]]
-            current_df["type"] = [item[0]["name"] for item in current_df["type"]]
+            try:
+                current_df["type_qid"] = [item[0]["id"] for item in current_df["type"]]
+                current_df["type"] = [item[0]["name"] for item in current_df["type"]]
+            except IndexError:
+                pass
 
         current_df["input_value"] = input_keys[idx]
         dfs.append(current_df)

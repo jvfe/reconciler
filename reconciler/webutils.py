@@ -32,6 +32,7 @@ def get_query_dict(df_column, qid_type):
 def perform_query(query_string):
 
     tries = 0
+    print("Reconciling...")
     while tries < 3:
         try:
             response = requests.post(
@@ -40,7 +41,13 @@ def perform_query(query_string):
         except requests.ConnectionError:
             tries += 1
         else:
-            return response.json()
+            query_result = response.json()
+            if "status" in query_result and query_result["status"] == "error":
+                raise requests.HTTPError(
+                    "The query returned an error, check if you mistyped an argument."
+                )
+            else:
+                return query_result
     if tries == 3:
         raise requests.ConnectionError("Couldn't connect to reconciliation client")
 
