@@ -4,6 +4,17 @@ import pandas as pd
 
 
 def parse_raw_results(input_keys, response):
+    """Parse JSON query result
+
+    Args:
+        input_keys(list): A list with the original input values
+            that were used to reconcile.
+        response(dict): A dict corresponding to the raw JSON response
+            from the reconciliation API.
+
+    Returns:
+        A Pandas DataFrame with all the results.
+    """
 
     res_keys = sorted(response.keys(), key=int)
 
@@ -35,7 +46,23 @@ def parse_raw_results(input_keys, response):
 
 
 def reconcile(column_to_reconcile, qid_type, top_res=1):
+    """Reconcile a DataFrame column with Wikidata items
 
+    Args:
+        column_to_reconcile(Series): A pandas Series corresponding to
+            the column to be reconciled.
+        qid_type(str): The Wikidata item type to reconcile against,
+            corresponds to the item's 'instance of' property.
+        top_res(int or str): The maximum number of matches to return for
+            each reconciled item, defaults to one. To retrieve all matches,
+            set it to 'all'.
+
+    Returns:
+        A Pandas DataFrame with the reconciled results.
+
+    Raises:
+        ValueError: top_res argument must be one of either 'all' or an integer.
+    """
     input_keys, response = return_reconciled_raw(column_to_reconcile, qid_type)
 
     parsed = parse_raw_results(input_keys, response)
