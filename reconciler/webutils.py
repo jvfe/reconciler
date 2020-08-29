@@ -13,12 +13,12 @@ def get_query_dict(df_column, qid_type):
     and reformats it.
 
     Args:
-        df_column(Series): A pandas Series to reconcile.
-        qid_type(str): A string specifying the item type to reconcile against,
+        df_column (Series): A pandas Series to reconcile.
+        qid_type (str): A string specifying the item type to reconcile against,
             this corresponds to the 'instance of' property of an item.
 
     Returns:
-        A tuple containing the list of the original values
+        tuple: A tuple containing the list of the original values
             sent to reconciliation a dictionary with the
             column values reformatted.
     """
@@ -37,10 +37,10 @@ def perform_query(query_string):
     """Make a post request to the reconciliation API
 
     Args:
-        query_string(str): A string corresponding to the query JSON.
+        query_string (str): A string corresponding to the query JSON.
 
     Returns:
-        A dictionary (JSON) with the query results.
+        dict: A dictionary (JSON) with the query results.
 
     Raises:
         requests.HTTPError: The query returned an error, check if you mistyped an argument.
@@ -77,12 +77,12 @@ def return_reconciled_raw(df_column, qid_type):
     appropriate JSON string.
 
     Args:
-        df_column(Series): A pandas Series to reconcile.
-        qid_type(str): The Wikidata item type to reconcile against,
+        df_column (Series): A pandas Series to reconcile.
+        qid_type (str): The Wikidata item type to reconcile against,
             corresponds to the item's 'instance of' property.
 
     Returns:
-        A tuple containing the list of the original values
+        tuple: A tuple containing the list of the original values
             sent to reconciliation and a dictionary (JSON)
             with the query results.
 

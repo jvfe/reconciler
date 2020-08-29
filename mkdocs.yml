@@ -1,0 +1,8 @@
+site_name: reconciler
+
+theme:
+  name: "material"
+
+plugins:
+  - search
+  - mkdocstrings
