@@ -23,12 +23,12 @@ def get_query_dict(df_column, qid_type):
 
     for idx, value in enumerate(input_keys):
 
-        reformatted[f"q{idx}"] = {"query": value, "type": qid_type}
+        reformatted[idx] = {"query": value, "type": qid_type}
 
     return input_keys, reformatted
 
 
-@lru_cache(maxsize=32)
+@lru_cache(maxsize=None)
 def perform_query(query_string):
 
     tries = 0

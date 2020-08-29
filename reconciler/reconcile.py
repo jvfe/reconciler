@@ -5,7 +5,7 @@ import pandas as pd
 
 def parse_raw_results(input_keys, response):
 
-    res_keys = sorted(response.keys())
+    res_keys = sorted(response.keys(), key=int)
 
     dfs = []
     for idx, key in enumerate(res_keys):

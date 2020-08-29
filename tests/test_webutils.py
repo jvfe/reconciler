@@ -14,10 +14,10 @@ input_keys, reformatted = get_query_dict(test_df["City"], qid_type="Q515")
 def test_get_query_dict():
 
     expected = {
-        "q0": {"query": "Rio de Janeiro", "type": "Q515"},
-        "q1": {"query": "São Paulo", "type": "Q515"},
-        "q2": {"query": "Natal", "type": "Q515"},
-        "q3": {"query": "FAKE_CITY_HERE", "type": "Q515"},
+        0: {"query": "Rio de Janeiro", "type": "Q515"},
+        1: {"query": "São Paulo", "type": "Q515"},
+        2: {"query": "Natal", "type": "Q515"},
+        3: {"query": "FAKE_CITY_HERE", "type": "Q515"},
     }
 
     assert expected == reformatted
