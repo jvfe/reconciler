@@ -1,11 +1,11 @@
 # reconciler
 
 <!-- badges: start -->
-[![license](https://img.shields.io/badge/license-BSD%202--clause-green)](https://github.com/jvfe/reconciler/blob/master/LICENSE)
+[![license](https://img.shields.io/badge/license-BSD%202--Clause-green)](https://github.com/jvfe/reconciler/blob/master/LICENSE)
 <!-- badges: end -->
 
-`reconciler` is a utility python package to reconcile tabular data with [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page), 
-working similarly to what [OpenRefine](https://openrefine.org/) does, but entirely within Python.
+`reconciler` is a python utility package to reconcile tabular data with [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page), 
+working similarly to what [OpenRefine](https://openrefine.org/) does, but entirely within Python, using Pandas.
 
 ## Quickstart
 
@@ -40,4 +40,4 @@ The resulting dataframe would look like this:
 | Q174    | True    | São Paulo      |     100 | city                   | Q515       | São Paulo      |
 | Q131620 | True    | Natal          |     100 | municipality of Brazil | Q3184121   | Natal          |
 
-Check out the [documentation]() for more advanced usage.
+Check out the [documentation](https://jvfe.github.io/reconciler/) for more advanced usage and to learn [how to contribute](https://jvfe.github.io/reconciler/contributing/).

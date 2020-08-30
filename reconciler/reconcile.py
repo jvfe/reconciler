@@ -4,7 +4,8 @@ import pandas as pd
 
 
 def parse_raw_results(input_keys, response):
-    """Parse JSON query result
+    """
+    Parse JSON query result
 
     Args:
         input_keys (list): A list with the original input values
@@ -46,7 +47,20 @@ def parse_raw_results(input_keys, response):
 
 
 def reconcile(column_to_reconcile, qid_type, top_res=1):
-    """Reconcile a DataFrame column with Wikidata items
+    """
+    Reconcile a DataFrame column with Wikidata items
+
+    This is the main function of this package, it takes in a Pandas Series,
+    that is, a column of a DataFrame, and sends it for reconciliation. In
+    order to return more confident results, the parameter qid_type corresponds
+    to the type of item you're trying to reconcile against, that is, the item's
+    'instance of' property. There is also a top_res argument, to filter the retrieved matches,
+    this can be either an int, corresponding to the number of matches you want to
+    retrieve for each reconciled item, or 'all', to return all matches.
+
+    The time this function takes to run will depend on the number of unique items
+    you have on your column, keep in mind that if you have a very large DataFrame, it
+    may be easier to break it up in smaller pieces and reconcile each one individually.
 
     Args:
         column_to_reconcile (Series): A pandas Series corresponding to

@@ -6,7 +6,8 @@ import pandas as pd
 
 
 def get_query_dict(df_column, qid_type):
-    """Convert a pandas DataFrame column to a query dictionary
+    """
+    Convert a pandas DataFrame column to a query dictionary
 
     The reconciliation API requires a json request formatted in a
     very particular way. This function takes in a DataFrame column

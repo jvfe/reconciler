@@ -1,10 +1,20 @@
 site_name: reconciler
-
+site_description: Python utilities to reconcile Pandas DataFrames with Wikidata.
+site_author: jvfe
+nav:
+    - Home: index.md
+    - Installation: installing.md
+    - Contributing: 
+        - Contribution guide: contributing.md
+        - Contributors: authors.md
+    - Example usage:
+      - Reconciling cell types: examples/reconcile_cell_types.md
+    - Reference:
+      - Main module: reference/reconcile.md
+      - Utility module: reference/webutils.md
 repo_url: https://github.com/jvfe/reconciler
-
 theme:
   name: "material"
-
 plugins:
   - search
   - mkdocstrings
