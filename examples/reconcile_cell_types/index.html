@@ -262,14 +262,62 @@ data_url = "https://s3-eu-west-1.amazonaws.com/pfigshare-u-files/10039264/annota
 cell_table = pd.read_csv(data_url)
 cell_table.head()
 </code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">cell</th>
+<th align="left">tissue</th>
+<th align="left">cell_ontology_class</th>
+<th align="left">cell_ontology_term_iri</th>
+<th align="left">cell_ontology_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">10X_P4_3_AAAGTAGAGATGCCAG</td>
+<td align="left">Bladder</td>
+<td align="left">mesenchymal cell</td>
+<td align="left">http://purl.obolibrary.org/obo/CL_0008019</td>
+<td align="left">CL:0008019</td>
+</tr>
+<tr>
+<td align="left">10X_P4_3_AACCGCGTCCAACCAA</td>
+<td align="left">Bladder</td>
+<td align="left">mesenchymal cell</td>
+<td align="left">http://purl.obolibrary.org/obo/CL_0008019</td>
+<td align="left">CL:0008019</td>
+</tr>
+<tr>
+<td align="left">10X_P4_3_AACTCCCGTCGGGTCT</td>
+<td align="left">Bladder</td>
+<td align="left">mesenchymal cell</td>
+<td align="left">http://purl.obolibrary.org/obo/CL_0008019</td>
+<td align="left">CL:0008019</td>
+</tr>
+<tr>
+<td align="left">10X_P4_3_AACTCTTAGTTGCAGG</td>
+<td align="left">Bladder</td>
+<td align="left">bladder cell</td>
+<td align="left">http://purl.obolibrary.org/obo/CL_1001319</td>
+<td align="left">CL:1001319</td>
+</tr>
+<tr>
+<td align="left">10X_P4_3_AACTCTTTCATAACCG</td>
+<td align="left">Bladder</td>
+<td align="left">mesenchymal cell</td>
+<td align="left">http://purl.obolibrary.org/obo/CL_0008019</td>
+<td align="left">CL:0008019</td>
+</tr>
+</tbody>
+</table>
 <p>Filtering only the unique pairs:</p>
 <pre><code class="python">unique_cells = cell_table.drop_duplicates(subset=['tissue', 'cell_ontology_class'])
 </code></pre>
 <h3 id="reconciliation">Reconciliation</h3>
-<p>Reconciling, against type cell (Q7868), returning the first 2 matches for each item:</p>
+<p>Reconciling, against cell type (Q189118), returning the first 2 matches for each item:</p>
 <p>This step will take a while to complete, varying according to your upload speed,
 here it took around a minute.</p>
-<pre><code class="python">reconciled = reconcile(unique_cells['cell_ontology_class'], qid_type="Q7868", top_res=2)
+<pre><code class="python">reconciled = reconcile(unique_cells['cell_ontology_class'], qid_type="Q189118", top_res=2)
 reconciled.head(10)
 </code></pre>
 <p>The output I got:</p>
@@ -281,46 +329,37 @@ reconciled.head(10)
 <th align="left">name</th>
 <th align="right">score</th>
 <th align="left">type</th>
-<th align="left">input_value</th>
 <th align="left">type_qid</th>
+<th align="left">input_value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Q66568500</td>
-<td align="left">False</td>
+<td align="left">Q1922379</td>
+<td align="left">True</td>
+<td align="left">mesenchymal stem cells</td>
+<td align="right">100</td>
+<td align="left">cell type</td>
+<td align="left">Q189118</td>
 <td align="left">mesenchymal cell</td>
-<td align="right">50</td>
+</tr>
+<tr>
+<td align="left">Q66563456</td>
+<td align="left">False</td>
+<td align="left">epithelial cell of gall bladder</td>
+<td align="right">28</td>
 <td align="left">[]</td>
-<td align="left">mesenchymal cell</td>
 <td align="left">nan</td>
+<td align="left">bladder cell</td>
 </tr>
 <tr>
-<td align="left">Q66576417</td>
+<td align="left">Q66568549</td>
 <td align="left">False</td>
-<td align="left">protoplasm of mesenchymal cell</td>
-<td align="right">35</td>
+<td align="left">urothelial cell of trigone of urinary bladder</td>
+<td align="right">21</td>
 <td align="left">[]</td>
-<td align="left">mesenchymal cell</td>
 <td align="left">nan</td>
-</tr>
-<tr>
-<td align="left">Q54952164</td>
-<td align="left">False</td>
-<td align="left">SBC-2</td>
-<td align="right">25</td>
-<td align="left">cell line</td>
 <td align="left">bladder cell</td>
-<td align="left">Q21014462</td>
-</tr>
-<tr>
-<td align="left">Q54952183</td>
-<td align="left">False</td>
-<td align="left">SBC-7</td>
-<td align="right">25</td>
-<td align="left">cell line</td>
-<td align="left">bladder cell</td>
-<td align="left">Q21014462</td>
 </tr>
 <tr>
 <td align="left">Q11394395</td>
@@ -328,8 +367,8 @@ reconciled.head(10)
 <td align="left">endothelial cells</td>
 <td align="right">50</td>
 <td align="left">[]</td>
-<td align="left">endothelial cell</td>
 <td align="left">nan</td>
+<td align="left">endothelial cell</td>
 </tr>
 <tr>
 <td align="left">Q68620792</td>
@@ -337,8 +376,8 @@ reconciled.head(10)
 <td align="left">human sinusoidal endothelial cell</td>
 <td align="right">32.5</td>
 <td align="left">[]</td>
-<td align="left">endothelial cell</td>
 <td align="left">nan</td>
+<td align="left">endothelial cell</td>
 </tr>
 <tr>
 <td align="left">Q66590632</td>
@@ -346,8 +385,8 @@ reconciled.head(10)
 <td align="left">basal cell of urothelium</td>
 <td align="right">50</td>
 <td align="left">[]</td>
-<td align="left">basal cell of urothelium</td>
 <td align="left">nan</td>
+<td align="left">basal cell of urothelium</td>
 </tr>
 <tr>
 <td align="left">Q66590636</td>
@@ -355,31 +394,40 @@ reconciled.head(10)
 <td align="left">basal cell layer of urothelium</td>
 <td align="right">44.5</td>
 <td align="left">[]</td>
+<td align="left">nan</td>
 <td align="left">basal cell of urothelium</td>
-<td align="left">nan</td>
 </tr>
 <tr>
-<td align="left">Q42395</td>
+<td align="left">Q223143</td>
 <td align="left">False</td>
-<td align="left">white blood cells</td>
-<td align="right">50</td>
-<td align="left">[]</td>
+<td align="left">granulocyte</td>
+<td align="right">67</td>
+<td align="left">cell type</td>
+<td align="left">Q189118</td>
 <td align="left">leukocyte</td>
-<td align="left">nan</td>
 </tr>
 <tr>
-<td align="left">Q71228927</td>
+<td align="left">Q1775422</td>
 <td align="left">False</td>
-<td align="left">Leukocyte Rolling</td>
-<td align="right">34.5</td>
-<td align="left">[]</td>
+<td align="left">agranulocyte</td>
+<td align="right">60</td>
+<td align="left">cell type</td>
+<td align="left">Q189118</td>
 <td align="left">leukocyte</td>
-<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left">Q463418</td>
+<td align="left">True</td>
+<td align="left">fibroblast</td>
+<td align="right">100</td>
+<td align="left">cell type</td>
+<td align="left">Q189118</td>
+<td align="left">fibroblast</td>
 </tr>
 </tbody>
 </table>
 <p>Now if you look at the object, you will see the matches retrieved for each item.</p>
-<p>Interestingly, as of 30 aug. 2020, there's not a lot of cell type data present in Wikidata, 
+<p>Interestingly, as of 30 Aug. 2020, there's not a lot of cell type data present in Wikidata, 
 <strong>a lot of the matches didn't even return a "type" value!</strong> That means they don't even have an 
 'instance of' property. This could be very interesting to look into, and add this information.</p>
 </article>
