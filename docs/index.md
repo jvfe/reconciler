@@ -2,6 +2,7 @@
 
 <!-- badges: start -->
 [![license](https://img.shields.io/badge/license-BSD%202--Clause-green)](https://github.com/jvfe/reconciler/blob/master/LICENSE)
+[![pytest status](https://github.com/jvfe/reconciler/workflows/Python%20package/badge.svg)](https://github.com/jvfe/reconciler/actions)
 <!-- badges: end -->
 
 `reconciler` is a python utility package to reconcile tabular data with [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page), 
