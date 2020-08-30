@@ -1,5 +1,7 @@
 site_name: reconciler
 
+repo_url: https://github.com/jvfe/reconciler
+
 theme:
   name: "material"
 
