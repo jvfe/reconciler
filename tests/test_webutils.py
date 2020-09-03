@@ -7,7 +7,11 @@ test_df = pd.DataFrame(
         "City": ["Rio de Janeiro", "São Paulo", "São Paulo", "Natal", "FAKE_CITY_HERE"],
     }
 )
-input_keys, reformatted = get_query_dict(test_df["City"], qid_type="Q515")
+input_keys, reformatted = get_query_dict(test_df["City"], type_id="Q515")
+test_endpoints = [
+    "https://wikidata.reconci.link/en/api",
+    "https://services.getty.edu/vocab/reconcile/",
+]
 
 
 def test_get_query_dict():
@@ -25,13 +29,19 @@ def test_get_query_dict():
 def test_perform_query():
 
     query_string = json.dumps({"queries": json.dumps(reformatted)})
-    query_res = perform_query(query_string)
+    query_res = perform_query(query_string, test_endpoints[0])
 
     assert len(query_res.keys()) == 4
 
 
 def test_return_raw_results():
 
-    input_keys, raw_res = return_reconciled_raw(test_df["City"], qid_type="Q515")
+    input_keys, raw_res = return_reconciled_raw(
+        test_df["City"], type_id="Q515", reconciliation_endpoint=test_endpoints[0]
+    )
 
+    input_keys2, raw_res2 = return_reconciled_raw(
+        test_df["City"], type_id="/ulan", reconciliation_endpoint=test_endpoints[1]
+    )
     assert len(input_keys) and len(raw_res.keys()) == 4
+    assert len(input_keys2) and len(raw_res2.keys()) == 4

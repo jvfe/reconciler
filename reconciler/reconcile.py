@@ -1,62 +1,27 @@
-from reconciler.webutils import return_reconciled_raw
-import numpy as np
+from reconciler.webutils import parse_raw_results, return_reconciled_raw
 import pandas as pd
 
 
-def parse_raw_results(input_keys, response):
+def reconcile(
+    column_to_reconcile,
+    type_id,
+    top_res=1,
+    reconciliation_endpoint="https://wikidata.reconci.link/en/api",
+):
     """
-    Parse JSON query result
-
-    Args:
-        input_keys (list): A list with the original input values
-            that were used to reconcile.
-        response (dict): A dict corresponding to the raw JSON response
-            from the reconciliation API.
-
-    Returns:
-        DataFrame: A Pandas DataFrame with all the results.
-    """
-
-    res_keys = sorted(response.keys(), key=int)
-
-    dfs = []
-    for idx, key in enumerate(res_keys):
-
-        current_df = pd.json_normalize(response[key]["result"])
-
-        if current_df.empty:
-            current_df = pd.DataFrame(
-                {
-                    "id": [np.NaN],
-                    "match": [False],
-                }
-            )
-        else:
-            try:
-                current_df["type_qid"] = [item[0]["id"] for item in current_df["type"]]
-                current_df["type"] = [item[0]["name"] for item in current_df["type"]]
-            except IndexError:
-                pass
-
-        current_df["input_value"] = input_keys[idx]
-        dfs.append(current_df)
-
-    concatenated = pd.concat(dfs)
-
-    return concatenated
-
-
-def reconcile(column_to_reconcile, qid_type, top_res=1):
-    """
-    Reconcile a DataFrame column with Wikidata items
+    Reconcile a DataFrame column
 
     This is the main function of this package, it takes in a Pandas Series,
     that is, a column of a DataFrame, and sends it for reconciliation. In
-    order to return more confident results, the parameter qid_type corresponds
-    to the type of item you're trying to reconcile against, that is, the item's
-    'instance of' property. There is also a top_res argument, to filter the retrieved matches,
-    this can be either an int, corresponding to the number of matches you want to
-    retrieve for each reconciled item, or 'all', to return all matches.
+    order to return more confident results, the parameter type_id corresponds
+    to the type of item you're trying to reconcile against, that is, in case of a Wikidata item,
+    it is the item's 'instance of' property. There is also a top_res argument,
+    to filter the retrieved matches, this can be either an int, corresponding to the number of
+    matches you want to retrieve for each reconciled item, or 'all', to return all matches.
+    The reconciliation_endpoint argument corresponds to the reconciliation service you're
+    trying to access, if no value is given, it will default to the Wikidata reconciliation
+    endpoint. See <https://reconciliation-api.github.io/testbench/> for a list of available
+    endpoints.
 
     The time this function takes to run will depend on the number of unique items
     you have on your column, keep in mind that if you have a very large DataFrame, it
@@ -65,11 +30,13 @@ def reconcile(column_to_reconcile, qid_type, top_res=1):
     Args:
         column_to_reconcile (Series): A pandas Series corresponding to
             the column to be reconciled.
-        qid_type (str): The Wikidata item type to reconcile against,
-            corresponds to the item's 'instance of' property.
+        type_id (str): The item type to reconcile against, in case of a
+            wikidata item, it corresponds to the item's 'instance of' QID.
         top_res (int or str): The maximum number of matches to return for
             each reconciled item, defaults to one. To retrieve all matches,
             set it to 'all'.
+        reconciliation_endpoint (str): The reconciliation endpoint, defaults
+            to the Wikidata reconciliation endpoint.
 
     Returns:
         DataFrame: A Pandas DataFrame with the reconciled results.
@@ -77,7 +44,9 @@ def reconcile(column_to_reconcile, qid_type, top_res=1):
     Raises:
         ValueError: top_res argument must be one of either 'all' or an integer.
     """
-    input_keys, response = return_reconciled_raw(column_to_reconcile, qid_type)
+    input_keys, response = return_reconciled_raw(
+        column_to_reconcile, type_id, reconciliation_endpoint
+    )
 
     parsed = parse_raw_results(input_keys, response)
 

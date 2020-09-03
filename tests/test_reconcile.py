@@ -13,7 +13,7 @@ test_df = pd.DataFrame(
 def test_basic_reconcile():
 
     expected_last_column = pd.Series(test_df["City"].unique())
-    results = reconcile(test_df["City"], qid_type="Q515")
+    results = reconcile(test_df["City"], type_id="Q515")
 
     assert results.shape == (4, 7)
     pd.testing.assert_series_equal(
@@ -26,9 +26,9 @@ def test_basic_reconcile():
 
 def test_fake_item():
     with raises(requests.HTTPError):
-        reconcile(test_df["City"], qid_type="FAKE_ITEM_GIVE_ERROR")
+        reconcile(test_df["City"], type_id="FAKE_ITEM_GIVE_ERROR")
 
 
 def test_fake_top_res():
     with raises(ValueError):
-        reconcile(test_df["City"], qid_type="Q515", top_res="I'm such a fake argument")
+        reconcile(test_df["City"], type_id="Q515", top_res="I'm such a fake argument")

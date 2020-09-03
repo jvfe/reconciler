@@ -2,10 +2,11 @@ from collections import defaultdict
 from functools import lru_cache
 import json
 import requests
+import numpy as np
 import pandas as pd
 
 
-def get_query_dict(df_column, qid_type):
+def get_query_dict(df_column, type_id):
     """
     Convert a pandas DataFrame column to a query dictionary
 
@@ -15,8 +16,8 @@ def get_query_dict(df_column, qid_type):
 
     Args:
         df_column (Series): A pandas Series to reconcile.
-        qid_type (str): A string specifying the item type to reconcile against,
-            this corresponds to the 'instance of' property of an item.
+        type_id (str): A string specifying the item type to reconcile against,
+            in Wikidata this corresponds to the 'instance of' property of an item.
 
     Returns:
         tuple: A tuple containing the list of the original values
@@ -28,17 +29,18 @@ def get_query_dict(df_column, qid_type):
 
     for idx, value in enumerate(input_keys):
 
-        reformatted[idx] = {"query": value, "type": qid_type}
+        reformatted[idx] = {"query": value, "type": type_id}
 
     return input_keys, reformatted
 
 
 @lru_cache(maxsize=None)
-def perform_query(query_string):
+def perform_query(query_string, reconciliation_endpoint):
     """Make a post request to the reconciliation API
 
     Args:
         query_string (str): A string corresponding to the query JSON.
+        reconciliation_endpoint (str): A url to the reconciliation endpoint.
 
     Returns:
         dict: A dictionary (JSON) with the query results.
@@ -54,7 +56,7 @@ def perform_query(query_string):
     while tries < 3:
         try:
             response = requests.post(
-                "https://wikidata.reconci.link/en/api", data=json.loads(query_string)
+                reconciliation_endpoint, data=json.loads(query_string)
             )
         except requests.ConnectionError:
             tries += 1
@@ -70,7 +72,7 @@ def perform_query(query_string):
         raise requests.ConnectionError("Couldn't connect to reconciliation client")
 
 
-def return_reconciled_raw(df_column, qid_type):
+def return_reconciled_raw(df_column, type_id, reconciliation_endpoint):
     """Send reformatted dict for reconciliation
 
     This is just a wrapper around the other utility functions. The
@@ -79,8 +81,9 @@ def return_reconciled_raw(df_column, qid_type):
 
     Args:
         df_column (Series): A pandas Series to reconcile.
-        qid_type (str): The Wikidata item type to reconcile against,
-            corresponds to the item's 'instance of' property.
+        type_id (str): A string specifying the item type to reconcile against,
+            in Wikidata this corresponds to the 'instance of' property of an item.
+        reconciliation_endpoint (str): A url to the reconciliation endpoint.
 
     Returns:
         tuple: A tuple containing the list of the original values
@@ -89,8 +92,51 @@ def return_reconciled_raw(df_column, qid_type):
 
     """
 
-    input_keys, reformatted = get_query_dict(df_column, qid_type)
+    input_keys, reformatted = get_query_dict(df_column, type_id)
     reconcilable_data = json.dumps({"queries": json.dumps(reformatted)})
-    query_result = perform_query(reconcilable_data)
+    query_result = perform_query(reconcilable_data, reconciliation_endpoint)
 
     return input_keys, query_result
+
+
+def parse_raw_results(input_keys, response):
+    """
+    Parse JSON query result
+
+    Args:
+        input_keys (list): A list with the original input values
+            that were used to reconcile.
+        response (dict): A dict corresponding to the raw JSON response
+            from the reconciliation API.
+
+    Returns:
+        DataFrame: A Pandas DataFrame with all the results.
+    """
+
+    res_keys = sorted(response.keys(), key=int)
+
+    dfs = []
+    for idx, key in enumerate(res_keys):
+
+        current_df = pd.json_normalize(response[key]["result"])
+
+        if current_df.empty:
+            current_df = pd.DataFrame(
+                {
+                    "id": [np.NaN],
+                    "match": [False],
+                }
+            )
+        else:
+            try:
+                current_df["type_qid"] = [item[0]["id"] for item in current_df["type"]]
+                current_df["type"] = [item[0]["name"] for item in current_df["type"]]
+            except IndexError:
+                pass
+
+        current_df["input_value"] = input_keys[idx]
+        dfs.append(current_df)
+
+    concatenated = pd.concat(dfs)
+
+    return concatenated

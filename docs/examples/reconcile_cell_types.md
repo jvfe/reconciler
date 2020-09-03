@@ -40,13 +40,13 @@ This step will take a while to complete, varying according to your upload speed,
 here it took around a minute.
 
 ```python
-reconciled = reconcile(unique_cells['cell_ontology_class'], qid_type="Q189118", top_res=2)
+reconciled = reconcile(unique_cells['cell_ontology_class'], type_id="Q189118", top_res=2)
 reconciled.head(10)
 ```
 
 The output I got:
 
-| id        | match   | name                                          |   score | type      | type_qid   | input_value              |
+| id        | match   | name                                          |   score | type      | type_id   | input_value              |
 |:----------|:--------|:----------------------------------------------|--------:|:----------|:-----------|:-------------------------|
 | Q1922379  | True    | mesenchymal stem cells                        |   100   | cell type | Q189118    | mesenchymal cell         |
 | Q66563456 | False   | epithelial cell of gall bladder               |    28   | []        | nan        | bladder cell             |
