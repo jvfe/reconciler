@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Python utilities to reconcile Pandas DataFrames with Wikidata." name="description"/>
+<meta content="Python utilities to reconcile Pandas DataFrames." name="description"/>
 <link href="https://jvfe.github.io/reconciler/reference/webutils/" rel="canonical"/>
 <meta content="jvfe" name="author"/>
 <link href="../../assets/images/favicon.png" rel="shortcut icon"/>
@@ -121,14 +121,19 @@
       Installation
     </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../history/" title="Version history">
+      Version history
+    </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
-<label class="md-nav__link" for="nav-3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<label class="md-nav__link" for="nav-4">
       Contributing
       <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Contributing" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-3">
+<label class="md-nav__title" for="nav-4">
 <span class="md-nav__icon md-icon"></span>
         Contributing
       </label>
@@ -147,13 +152,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
-<label class="md-nav__link" for="nav-4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
+<label class="md-nav__link" for="nav-5">
       Example usage
       <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Example usage" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-4">
+<label class="md-nav__title" for="nav-5">
 <span class="md-nav__icon md-icon"></span>
         Example usage
       </label>
@@ -167,13 +172,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
-<label class="md-nav__link" for="nav-5">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-6" id="nav-6" type="checkbox"/>
+<label class="md-nav__link" for="nav-6">
       Reference
       <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Reference" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-5">
+<label class="md-nav__title" for="nav-6">
 <span class="md-nav__icon md-icon"></span>
         Reference
       </label>
@@ -214,8 +219,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#reconciler.reconcile.parse_raw_results">
-    reconciler.reconcile.parse_raw_results
+<a class="md-nav__link" href="#reconciler.webutils.parse_raw_results">
+    reconciler.webutils.parse_raw_results
   </a>
 </li>
 </ul>
@@ -254,8 +259,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#reconciler.reconcile.parse_raw_results">
-    reconciler.reconcile.parse_raw_results
+<a class="md-nav__link" href="#reconciler.webutils.parse_raw_results">
+    reconciler.webutils.parse_raw_results
   </a>
 </li>
 </ul>
@@ -299,11 +304,11 @@ and reformats it.</p>
 <td><em>required</em></td>
 </tr>
 <tr>
-<td><code>qid_type</code></td>
+<td><code>type_id</code></td>
 <td><code>str</code></td>
 <td>
 <p>A string specifying the item type to reconcile against,
-this corresponds to the 'instance of' property of an item.</p>
+in Wikidata this corresponds to the 'instance of' property of an item.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -331,7 +336,7 @@ this corresponds to the 'instance of' property of an item.</p>
 <details class="quote">
 <summary>Source code in <code>reconciler/webutils.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">get_query_dict</span><span class="p">(</span><span class="n">df_column</span><span class="p">,</span> <span class="n">qid_type</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_query_dict</span><span class="p">(</span><span class="n">df_column</span><span class="p">,</span> <span class="n">type_id</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Convert a pandas DataFrame column to a query dictionary</span>
 
@@ -341,8 +346,8 @@ this corresponds to the 'instance of' property of an item.</p>
 
 <span class="sd">    Args:</span>
 <span class="sd">        df_column (Series): A pandas Series to reconcile.</span>
-<span class="sd">        qid_type (str): A string specifying the item type to reconcile against,</span>
-<span class="sd">            this corresponds to the 'instance of' property of an item.</span>
+<span class="sd">        type_id (str): A string specifying the item type to reconcile against,</span>
+<span class="sd">            in Wikidata this corresponds to the 'instance of' property of an item.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        tuple: A tuple containing the list of the original values</span>
@@ -354,7 +359,7 @@ this corresponds to the 'instance of' property of an item.</p>
 
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_keys</span><span class="p">):</span>
 
-        <span class="n">reformatted</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"query"</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span> <span class="s2">"type"</span><span class="p">:</span> <span class="n">qid_type</span><span class="p">}</span>
+        <span class="n">reformatted</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"query"</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span> <span class="s2">"type"</span><span class="p">:</span> <span class="n">type_id</span><span class="p">}</span>
 
     <span class="k">return</span> <span class="n">input_keys</span><span class="p">,</span> <span class="n">reformatted</span>
 </code></pre>
@@ -384,6 +389,14 @@ this corresponds to the 'instance of' property of an item.</p>
 <td><code>str</code></td>
 <td>
 <p>A string corresponding to the query JSON.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>reconciliation_endpoint</code></td>
+<td><code>str</code></td>
+<td>
+<p>A url to the reconciliation endpoint.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -433,11 +446,12 @@ this corresponds to the 'instance of' property of an item.</p>
 <summary>Source code in <code>reconciler/webutils.py</code></summary>
 <div class="highlight">
 <pre><span></span><code><span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">perform_query</span><span class="p">(</span><span class="n">query_string</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">perform_query</span><span class="p">(</span><span class="n">query_string</span><span class="p">,</span> <span class="n">reconciliation_endpoint</span><span class="p">):</span>
     <span class="sd">"""Make a post request to the reconciliation API</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        query_string (str): A string corresponding to the query JSON.</span>
+<span class="sd">        reconciliation_endpoint (str): A url to the reconciliation endpoint.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        dict: A dictionary (JSON) with the query results.</span>
@@ -453,7 +467,7 @@ this corresponds to the 'instance of' property of an item.</p>
     <span class="k">while</span> <span class="n">tries</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-                <span class="s2">"https://wikidata.reconci.link/en/api"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">query_string</span><span class="p">)</span>
+                <span class="n">reconciliation_endpoint</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">query_string</span><span class="p">)</span>
             <span class="p">)</span>
         <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">:</span>
             <span class="n">tries</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -501,11 +515,19 @@ appropriate JSON string.</p>
 <td><em>required</em></td>
 </tr>
 <tr>
-<td><code>qid_type</code></td>
+<td><code>type_id</code></td>
 <td><code>str</code></td>
 <td>
-<p>The Wikidata item type to reconcile against,
-corresponds to the item's 'instance of' property.</p>
+<p>A string specifying the item type to reconcile against,
+in Wikidata this corresponds to the 'instance of' property of an item.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>reconciliation_endpoint</code></td>
+<td><code>str</code></td>
+<td>
+<p>A url to the reconciliation endpoint.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -533,7 +555,7 @@ corresponds to the item's 'instance of' property.</p>
 <details class="quote">
 <summary>Source code in <code>reconciler/webutils.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">return_reconciled_raw</span><span class="p">(</span><span class="n">df_column</span><span class="p">,</span> <span class="n">qid_type</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">return_reconciled_raw</span><span class="p">(</span><span class="n">df_column</span><span class="p">,</span> <span class="n">type_id</span><span class="p">,</span> <span class="n">reconciliation_endpoint</span><span class="p">):</span>
     <span class="sd">"""Send reformatted dict for reconciliation</span>
 
 <span class="sd">    This is just a wrapper around the other utility functions. The</span>
@@ -542,8 +564,9 @@ corresponds to the item's 'instance of' property.</p>
 
 <span class="sd">    Args:</span>
 <span class="sd">        df_column (Series): A pandas Series to reconcile.</span>
-<span class="sd">        qid_type (str): The Wikidata item type to reconcile against,</span>
-<span class="sd">            corresponds to the item's 'instance of' property.</span>
+<span class="sd">        type_id (str): A string specifying the item type to reconcile against,</span>
+<span class="sd">            in Wikidata this corresponds to the 'instance of' property of an item.</span>
+<span class="sd">        reconciliation_endpoint (str): A url to the reconciliation endpoint.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        tuple: A tuple containing the list of the original values</span>
@@ -552,9 +575,9 @@ corresponds to the item's 'instance of' property.</p>
 
 <span class="sd">    """</span>
 
-    <span class="n">input_keys</span><span class="p">,</span> <span class="n">reformatted</span> <span class="o">=</span> <span class="n">get_query_dict</span><span class="p">(</span><span class="n">df_column</span><span class="p">,</span> <span class="n">qid_type</span><span class="p">)</span>
+    <span class="n">input_keys</span><span class="p">,</span> <span class="n">reformatted</span> <span class="o">=</span> <span class="n">get_query_dict</span><span class="p">(</span><span class="n">df_column</span><span class="p">,</span> <span class="n">type_id</span><span class="p">)</span>
     <span class="n">reconcilable_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">"queries"</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">reformatted</span><span class="p">)})</span>
-    <span class="n">query_result</span> <span class="o">=</span> <span class="n">perform_query</span><span class="p">(</span><span class="n">reconcilable_data</span><span class="p">)</span>
+    <span class="n">query_result</span> <span class="o">=</span> <span class="n">perform_query</span><span class="p">(</span><span class="n">reconcilable_data</span><span class="p">,</span> <span class="n">reconciliation_endpoint</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">input_keys</span><span class="p">,</span> <span class="n">query_result</span>
 </code></pre>
@@ -564,7 +587,7 @@ corresponds to the item's 'instance of' property.</p>
 </div>
 <p><strong>parse_raw_results()</strong></p>
 <div class="doc doc-object doc-function">
-<h2 class="hidden-toc" href="#reconciler.reconcile.parse_raw_results" id="reconciler.reconcile.parse_raw_results" style="visibility: hidden; width: 0; height: 0;">
+<h2 class="hidden-toc" href="#reconciler.webutils.parse_raw_results" id="reconciler.webutils.parse_raw_results" style="visibility: hidden; width: 0; height: 0;">
 </h2>
 <div class="doc doc-contents first">
 <p>Parse JSON query result</p>
@@ -617,7 +640,7 @@ from the reconciliation API.</p>
 </tbody>
 </table>
 <details class="quote">
-<summary>Source code in <code>reconciler/reconcile.py</code></summary>
+<summary>Source code in <code>reconciler/webutils.py</code></summary>
 <div class="highlight">
 <pre><span></span><code><span class="k">def</span> <span class="nf">parse_raw_results</span><span class="p">(</span><span class="n">input_keys</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
     <span class="sd">"""</span>
@@ -649,7 +672,7 @@ from the reconciliation API.</p>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">current_df</span><span class="p">[</span><span class="s2">"type_qid"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"id"</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current_df</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]]</span>
+                <span class="n">current_df</span><span class="p">[</span><span class="s2">"type_id"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"id"</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current_df</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]]</span>
                 <span class="n">current_df</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current_df</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]]</span>
             <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
                 <span class="k">pass</span>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Python utilities to reconcile Pandas DataFrames with Wikidata." name="description"/>
+<meta content="Python utilities to reconcile Pandas DataFrames." name="description"/>
 <link href="https://jvfe.github.io/reconciler/" rel="canonical"/>
 <meta content="jvfe" name="author"/>
 <link href="assets/images/favicon.png" rel="shortcut icon"/>
@@ -144,14 +144,19 @@
       Installation
     </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="history/" title="Version history">
+      Version history
+    </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
-<label class="md-nav__link" for="nav-3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<label class="md-nav__link" for="nav-4">
       Contributing
       <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Contributing" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-3">
+<label class="md-nav__title" for="nav-4">
 <span class="md-nav__icon md-icon"></span>
         Contributing
       </label>
@@ -170,13 +175,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
-<label class="md-nav__link" for="nav-4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
+<label class="md-nav__link" for="nav-5">
       Example usage
       <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Example usage" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-4">
+<label class="md-nav__title" for="nav-5">
 <span class="md-nav__icon md-icon"></span>
         Example usage
       </label>
@@ -190,13 +195,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
-<label class="md-nav__link" for="nav-5">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" id="nav-6" type="checkbox"/>
+<label class="md-nav__link" for="nav-6">
       Reference
       <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Reference" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-5">
+<label class="md-nav__title" for="nav-6">
 <span class="md-nav__icon md-icon"></span>
         Reference
       </label>
@@ -251,10 +256,11 @@
 <h1 id="welcome-to-reconcilers-documentation">Welcome to reconciler's documentation!</h1>
 <!-- badges: start -->
 <p><a href="https://github.com/jvfe/reconciler/blob/master/LICENSE"><img alt="license" src="https://img.shields.io/badge/license-BSD%202--Clause-green"/></a>
-<a href="https://github.com/jvfe/reconciler/actions"><img alt="pytest status" src="https://github.com/jvfe/reconciler/workflows/Python%20package/badge.svg"/></a>
+<a href="https://github.com/jvfe/reconciler/actions"><img alt="pytest status" src="https://github.com/jvfe/reconciler/workflows/reconciler/badge.svg"/></a>
 <!-- badges: end --></p>
-<p><code>reconciler</code> is a python utility package to reconcile tabular data with <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a>, 
-working similarly to what <a href="https://openrefine.org/">OpenRefine</a> does, but entirely within Python, using Pandas.</p>
+<p><code>reconciler</code> is a python package to reconcile tabular data with various reconciliation services, such as 
+<a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a>, working similarly to what <a href="https://openrefine.org/">OpenRefine</a> 
+does, but entirely within Python, using Pandas.</p>
 <h2 id="quickstart">Quickstart</h2>
 <p>You can install the latest version of reconciler from PyPI with:</p>
 <pre><code class="bash">pip install reconciler
@@ -271,7 +277,7 @@ test_df = pd.DataFrame(
 )
 
 # Reconcile against type city (Q515), getting the best match for each item.
-reconciled = reconcile(test_df["City"], qid_type="Q515")
+reconciled = reconcile(test_df["City"], type_id="Q515")
 </code></pre>
 <p>The resulting dataframe would look like this:</p>
 <table>
@@ -282,7 +288,7 @@ reconciled = reconcile(test_df["City"], qid_type="Q515")
 <th align="left">name</th>
 <th align="right">score</th>
 <th align="left">type</th>
-<th align="left">type_qid</th>
+<th align="left">type_id</th>
 <th align="left">input_value</th>
 </tr>
 </thead>
