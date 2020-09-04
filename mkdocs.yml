@@ -5,6 +5,7 @@ site_url: https://jvfe.github.io/reconciler/
 nav:
     - Home: index.md
     - Installation: installing.md
+    - Version history: history.md
     - Contributing: 
         - Contribution guide: contributing.md
         - Contributors: authors.md
