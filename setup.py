@@ -30,7 +30,7 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
     ],
-    description="Python utilities to reconcile Pandas DataFrames with Wikidata",
+    description="Python utility to reconcile Pandas DataFrames",
     install_requires=install_requirements,
     license="BSD license",
     long_description=readme,

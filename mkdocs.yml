@@ -1,5 +1,5 @@
 site_name: reconciler
-site_description: Python utilities to reconcile Pandas DataFrames with Wikidata.
+site_description: Python utilities to reconcile Pandas DataFrames.
 site_author: jvfe
 site_url: https://jvfe.github.io/reconciler/
 nav:
