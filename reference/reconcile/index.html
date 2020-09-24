@@ -394,13 +394,26 @@ to the Wikidata reconciliation endpoint.</p>
 <span class="sd">    Raises:</span>
 <span class="sd">        ValueError: top_res argument must be one of either 'all' or an integer.</span>
 <span class="sd">    """</span>
-    <span class="n">input_keys</span><span class="p">,</span> <span class="n">response</span> <span class="o">=</span> <span class="n">return_reconciled_raw</span><span class="p">(</span>
-        <span class="n">column_to_reconcile</span><span class="p">,</span> <span class="n">type_id</span><span class="p">,</span> <span class="n">reconciliation_endpoint</span>
+
+    <span class="n">size_of_frames</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">number_of_frames</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">column_to_reconcile</span><span class="p">)</span> <span class="o">/</span> <span class="n">size_of_frames</span><span class="p">)</span>
+    <span class="n">frames</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">column_to_reconcile</span><span class="p">,</span> <span class="n">number_of_frames</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">column_to_reconcile</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">size_of_frames</span>
+        <span class="k">else</span> <span class="p">[</span><span class="n">column_to_reconcile</span><span class="p">]</span>
     <span class="p">)</span>
 
-    <span class="n">parsed</span> <span class="o">=</span> <span class="n">parse_raw_results</span><span class="p">(</span><span class="n">input_keys</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+    <span class="n">dfs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">input_keys</span><span class="p">,</span> <span class="n">response</span> <span class="o">=</span> <span class="n">return_reconciled_raw</span><span class="p">(</span>
+            <span class="n">column</span><span class="p">,</span> <span class="n">type_id</span><span class="p">,</span> <span class="n">reconciliation_endpoint</span>
+        <span class="p">)</span>
 
-    <span class="n">full_df</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">"features"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">parsed</span> <span class="o">=</span> <span class="n">parse_raw_results</span><span class="p">(</span><span class="n">input_keys</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+
+        <span class="n">dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">"features"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="n">full_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">top_res</span> <span class="o">==</span> <span class="s2">"all"</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">full_df</span>

@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://jvfe.github.io/reconciler/</loc>
-     <lastmod>2020-09-04</lastmod>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jvfe.github.io/reconciler/installing/</loc>
-     <lastmod>2020-09-04</lastmod>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jvfe.github.io/reconciler/history/</loc>
-     <lastmod>2020-09-04</lastmod>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jvfe.github.io/reconciler/contributing/</loc>
-     <lastmod>2020-09-04</lastmod>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jvfe.github.io/reconciler/authors/</loc>
-     <lastmod>2020-09-04</lastmod>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jvfe.github.io/reconciler/examples/reconcile_cell_types/</loc>
-     <lastmod>2020-09-04</lastmod>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jvfe.github.io/reconciler/reference/reconcile/</loc>
-     <lastmod>2020-09-04</lastmod>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jvfe.github.io/reconciler/reference/webutils/</loc>
-     <lastmod>2020-09-04</lastmod>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
