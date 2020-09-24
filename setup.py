@@ -8,6 +8,7 @@ with open("README.md", "r") as readme_file:
 install_requirements = [
     "requests",
     "pandas",
+    "tqdm",
 ]
 
 test_requirements = [

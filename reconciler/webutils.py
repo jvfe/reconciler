@@ -52,7 +52,6 @@ def perform_query(query_string, reconciliation_endpoint):
     """
 
     tries = 0
-    print("Reconciling...")
     while tries < 3:
         try:
             response = requests.post(
