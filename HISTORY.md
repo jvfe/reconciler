@@ -8,3 +8,9 @@
 
 * Adds reconciliation_endpoint argument, so the user can define the service (Defaults to Wikidata)
 * Changes qid_type argument to be called type_id.
+
+### 0.1.2 (2020-09-24)
+
+* Dataframes with more than 10 rows are now split in multiple dataframes, to avoid timeouts due to large requests.
+
+* Adds a tqdm progress bar for the reconciliation.
