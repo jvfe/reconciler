@@ -25,10 +25,6 @@ def reconcile(
     endpoint. See <https://reconciliation-api.github.io/testbench/> for a list of available
     endpoints.
 
-    The time this function takes to run will depend on the number of unique items
-    you have on your column, keep in mind that if you have a very large DataFrame, it
-    may be easier to break it up in smaller pieces and reconcile each one individually.
-
     Args:
         column_to_reconcile (Series): A pandas Series corresponding to
             the column to be reconciled.
