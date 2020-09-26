@@ -14,3 +14,7 @@
 * Dataframes with more than 10 rows are now split in multiple dataframes, to avoid timeouts due to large requests.
 
 * Adds a tqdm progress bar for the reconciliation.
+
+### 0.1.3 (2020-09-26)
+
+* Adds a new argument to the main function, has_property, which allows to reconcile against specific property-value pairs.
