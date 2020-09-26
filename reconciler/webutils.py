@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 
 
-def get_query_dict(df_column, type_id):
+def get_query_dict(df_column, type_id, has_property):
     """
     Convert a pandas DataFrame column to a query dictionary
 
@@ -29,7 +29,14 @@ def get_query_dict(df_column, type_id):
 
     for idx, value in enumerate(input_keys):
 
-        reformatted[idx] = {"query": value, "type": type_id}
+        if has_property is None:
+            reformatted[idx] = {"query": value, "type": type_id}
+        else:
+            reformatted[idx] = {
+                "query": value,
+                "type": type_id,
+                "properties": [{"pid": has_property[0], "v": {"id": has_property[1]}}],
+            }
 
     return input_keys, reformatted
 
@@ -71,7 +78,7 @@ def perform_query(query_string, reconciliation_endpoint):
         raise requests.ConnectionError("Couldn't connect to reconciliation client")
 
 
-def return_reconciled_raw(df_column, type_id, reconciliation_endpoint):
+def return_reconciled_raw(df_column, type_id, has_property, reconciliation_endpoint):
     """Send reformatted dict for reconciliation
 
     This is just a wrapper around the other utility functions. The
@@ -91,7 +98,7 @@ def return_reconciled_raw(df_column, type_id, reconciliation_endpoint):
 
     """
 
-    input_keys, reformatted = get_query_dict(df_column, type_id)
+    input_keys, reformatted = get_query_dict(df_column, type_id, has_property)
     reconcilable_data = json.dumps({"queries": json.dumps(reformatted)})
     query_result = perform_query(reconcilable_data, reconciliation_endpoint)
 

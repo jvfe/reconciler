@@ -8,6 +8,7 @@ def reconcile(
     column_to_reconcile,
     type_id,
     top_res=1,
+    has_property=None,
     reconciliation_endpoint="https://wikidata.reconci.link/en/api",
 ):
     """
@@ -54,7 +55,10 @@ def reconcile(
     dfs = []
     for column in tqdm(frames, position=0, leave=True):
         input_keys, response = return_reconciled_raw(
-            column, type_id, reconciliation_endpoint
+            column,
+            type_id,
+            has_property,
+            reconciliation_endpoint,
         )
 
         parsed = parse_raw_results(input_keys, response)

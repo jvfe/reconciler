@@ -83,6 +83,19 @@ def test_long_reconcile():
     assert results.shape == (51, 7)
 
 
+def test_reconcile_against_triple():
+
+    gene_df = pd.DataFrame(
+        {"gene": ["BRCA1", "MAPK10"], "species": ["Homo sapiens", "Homo sapiens"]}
+    )
+
+    results = reconcile(
+        gene_df["gene"], type_id="Q7187", has_property=("P703", "Q15978631")
+    )
+
+    assert results["id"][0] == "Q227339"
+
+
 # Edge cases
 
 
