@@ -9,14 +9,15 @@
 <link href="https://jvfe.github.io/reconciler/reference/webutils/" rel="canonical"/>
 <meta content="jvfe" name="author"/>
 <link href="../../assets/images/favicon.png" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-5.5.11" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-6.0.2" name="generator"/>
 <title>Utility module - reconciler</title>
-<link href="../../assets/stylesheets/main.860688db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.38780c08.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f72e892.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
 </head>
-<body dir="ltr">
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -112,17 +113,17 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../.." title="Home">
+<a class="md-nav__link" href="../..">
       Home
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../installing/" title="Installation">
+<a class="md-nav__link" href="../../installing/">
       Installation
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../history/" title="Version history">
+<a class="md-nav__link" href="../../history/">
       Version history
     </a>
 </li>
@@ -139,12 +140,12 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../contributing/" title="Contribution guide">
+<a class="md-nav__link" href="../../contributing/">
       Contribution guide
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../authors/" title="Contributors">
+<a class="md-nav__link" href="../../authors/">
       Contributors
     </a>
 </li>
@@ -164,7 +165,7 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../examples/reconcile_cell_types/" title="Reconciling cell types">
+<a class="md-nav__link" href="../../examples/reconcile_cell_types/">
       Reconciling cell types
     </a>
 </li>
@@ -184,7 +185,7 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reconcile/" title="Main module">
+<a class="md-nav__link" href="../reconcile/">
       Main module
     </a>
 </li>
@@ -194,7 +195,7 @@
         Utility module
         <span class="md-nav__icon md-icon"></span>
 </label>
-<a class="md-nav__link md-nav__link--active" href="./" title="Utility module">
+<a class="md-nav__link md-nav__link--active" href="./">
       Utility module
     </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
@@ -277,7 +278,7 @@
 <p>The utilities module, for formatting and performing queries.</p>
 <p><strong>get_query_dict()</strong></p>
 <div class="doc doc-object doc-function">
-<h2 class="hidden-toc" href="#reconciler.webutils.get_query_dict" id="reconciler.webutils.get_query_dict" style="visibility: hidden; width: 0; height: 0;">
+<h2 class="hidden-toc" href="#reconciler.webutils.get_query_dict" id="reconciler.webutils.get_query_dict" style="visibility: hidden; position: absolute;">
 </h2>
 <div class="doc doc-contents first">
 <p>Convert a pandas DataFrame column to a query dictionary</p>
@@ -359,14 +360,16 @@ in Wikidata this corresponds to the 'instance of' property of an item.</p>
 
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_keys</span><span class="p">):</span>
 
-        <span class="k">if</span> <span class="n">has_property</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">reformatted</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"query"</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span> <span class="s2">"type"</span><span class="p">:</span> <span class="n">type_id</span><span class="p">}</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">type_id</span> <span class="ow">and</span> <span class="n">has_property</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">reformatted</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s2">"query"</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
                 <span class="s2">"type"</span><span class="p">:</span> <span class="n">type_id</span><span class="p">,</span>
                 <span class="s2">"properties"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"pid"</span><span class="p">:</span> <span class="n">has_property</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"v"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="n">has_property</span><span class="p">[</span><span class="mi">1</span><span class="p">]}}],</span>
             <span class="p">}</span>
+        <span class="k">elif</span> <span class="n">type_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">reformatted</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"query"</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span> <span class="s2">"type"</span><span class="p">:</span> <span class="n">type_id</span><span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">reformatted</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"query"</span><span class="p">:</span> <span class="n">value</span><span class="p">}</span>
 
     <span class="k">return</span> <span class="n">input_keys</span><span class="p">,</span> <span class="n">reformatted</span>
 </code></pre>
@@ -376,7 +379,7 @@ in Wikidata this corresponds to the 'instance of' property of an item.</p>
 </div>
 <p><strong>perform_query()</strong></p>
 <div class="doc doc-object doc-function">
-<h2 class="hidden-toc" href="#reconciler.webutils.perform_query" id="reconciler.webutils.perform_query" style="visibility: hidden; width: 0; height: 0;">
+<h2 class="hidden-toc" href="#reconciler.webutils.perform_query" id="reconciler.webutils.perform_query" style="visibility: hidden; position: absolute;">
 </h2>
 <div class="doc doc-contents first">
 <p>Make a post request to the reconciliation API</p>
@@ -494,7 +497,7 @@ in Wikidata this corresponds to the 'instance of' property of an item.</p>
 </div>
 <p><strong>return_reconciled_raw()</strong></p>
 <div class="doc doc-object doc-function">
-<h2 class="hidden-toc" href="#reconciler.webutils.return_reconciled_raw" id="reconciler.webutils.return_reconciled_raw" style="visibility: hidden; width: 0; height: 0;">
+<h2 class="hidden-toc" href="#reconciler.webutils.return_reconciled_raw" id="reconciler.webutils.return_reconciled_raw" style="visibility: hidden; position: absolute;">
 </h2>
 <div class="doc doc-contents first">
 <p>Send reformatted dict for reconciliation</p>
@@ -593,7 +596,7 @@ in Wikidata this corresponds to the 'instance of' property of an item.</p>
 </div>
 <p><strong>parse_raw_results()</strong></p>
 <div class="doc doc-object doc-function">
-<h2 class="hidden-toc" href="#reconciler.webutils.parse_raw_results" id="reconciler.webutils.parse_raw_results" style="visibility: hidden; width: 0; height: 0;">
+<h2 class="hidden-toc" href="#reconciler.webutils.parse_raw_results" id="reconciler.webutils.parse_raw_results" style="visibility: hidden; position: absolute;">
 </h2>
 <div class="doc doc-contents first">
 <p>Parse JSON query result</p>
@@ -701,7 +704,7 @@ from the reconciliation API.</p>
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href="../reconcile/" rel="prev" title="Main module">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../reconcile/" rel="prev">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -729,14 +732,14 @@ from the reconciliation API.</p>
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.df0def68.min.js"></script>
-<script src="../../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../../assets/javascripts/vendor.77e55a48.min.js"></script>
+<script src="../../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
 <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
