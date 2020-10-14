@@ -1,4 +1,4 @@
-from reconciler.reconcile import reconcile
+from reconciler import reconcile
 from pytest import raises
 import pandas as pd
 import requests
@@ -19,6 +19,17 @@ def test_basic_reconcile():
     pd.testing.assert_series_equal(
         expected_last_column, results["input_value"], check_names=False
     )
+
+
+def test_reconcile_without_type():
+
+    results = reconcile(test_df["City"])
+
+    expected_names = ["Rio de Janeiro", "São Paulo", "Christmas"]
+
+    retrieved = results["name"].to_list()[0:3]
+
+    assert retrieved == expected_names
 
 
 def test_long_reconcile():
