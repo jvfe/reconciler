@@ -6,7 +6,7 @@ import numpy as np
 
 def reconcile(
     column_to_reconcile,
-    type_id,
+    type_id=None,
     top_res=1,
     has_property=None,
     reconciliation_endpoint="https://wikidata.reconci.link/en/api",

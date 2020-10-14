@@ -29,14 +29,16 @@ def get_query_dict(df_column, type_id, has_property):
 
     for idx, value in enumerate(input_keys):
 
-        if has_property is None:
-            reformatted[idx] = {"query": value, "type": type_id}
-        else:
+        if (type_id and has_property) is not None:
             reformatted[idx] = {
                 "query": value,
                 "type": type_id,
                 "properties": [{"pid": has_property[0], "v": {"id": has_property[1]}}],
             }
+        elif type_id is not None:
+            reformatted[idx] = {"query": value, "type": type_id}
+        else:
+            reformatted[idx] = {"query": value}
 
     return input_keys, reformatted
 
