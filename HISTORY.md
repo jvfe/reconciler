@@ -18,3 +18,7 @@
 ### 0.1.3 (2020-09-26)
 
 * Adds a new argument to the main function, has_property, which allows to reconcile against specific property-value pairs.
+
+### 0.1.4 (2020-10-14)
+
+* Makes the type_id argument optional, to allow reconciliation against any term.
