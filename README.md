@@ -3,6 +3,7 @@
 <!-- badges: start -->
 [![license](https://img.shields.io/badge/license-BSD%202--Clause-green)](https://github.com/jvfe/reconciler/blob/master/LICENSE)
 [![pytest status](https://github.com/jvfe/reconciler/workflows/reconciler/badge.svg)](https://github.com/jvfe/reconciler/actions)
+[![documentation status](https://github.com/jvfe/reconciler/workflows/docs/badge.svg)](https://jvfe.github.io/reconciler/)
 <!-- badges: end -->
 
 `reconciler` is a python package to reconcile tabular data with various reconciliation services, such as 
@@ -50,4 +51,14 @@ a specific property-value pair:
 reconciled = reconcile(test_df["City"], type_id="Q515", has_property=("P17", "Q155"))
 ```
 
-Check out the [documentation](https://jvfe.github.io/reconciler/) for more advanced usage and to learn [how to contribute](https://jvfe.github.io/reconciler/contributing/).
+## Other very useful packages
+
+Although my opinion may be biased, I think `reconciler` is a pretty nice package.
+But the thing is, it probably won't fulfill all your Wikidata-related needs.
+Here are other packages that could help with that:
+
+* [WikidataIntegrator](https://github.com/SuLab/WikidataIntegrator) has a lot of very nice, low-level, functions 
+    for dealing with various wikidata-related activities, such as item acquisition and programmatic editing.
+
+* [wikidata2df](https://github.com/jvfe/wikidata2df) is a very simple utility package for quickly and easily
+    turning wikidata SPARQL queries into Pandas DataFrames.
