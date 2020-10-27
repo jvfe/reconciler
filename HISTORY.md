@@ -22,3 +22,7 @@
 ### 0.1.4 (2020-10-14)
 
 * Makes the type_id argument optional, to allow reconciliation against any term.
+
+### 0.1.5 (2020-10-27)
+
+* Fixes bug on reconciler.reconcile when parsing empty results.

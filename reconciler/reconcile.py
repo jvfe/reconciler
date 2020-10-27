@@ -69,7 +69,7 @@ def reconcile(
 
         parsed = parse_raw_results(input_keys, response)
 
-        dfs.append(parsed.drop(["features"], axis=1))
+        dfs.append(parsed)
 
     full_df = pd.concat(dfs)
 

@@ -1,6 +1,7 @@
 from reconciler import reconcile
 from pytest import raises
 import pandas as pd
+import numpy as np
 import requests
 
 test_df = pd.DataFrame(
@@ -107,12 +108,25 @@ def test_reconcile_against_triple():
     assert results["id"][0] == "Q227339"
 
 
+def test_no_results():
+    """Tests if parsing with absent results still works"""
+
+    test_series = pd.Series(["Querula rubricollis", "Querula rubricollis"])
+
+    reconciled = reconcile(test_series, type_id="Q16521")
+
+    expected_results = pd.DataFrame(
+        {
+            "id": [np.NaN],
+            "match": [False],
+            "input_value": ["Querula rubricollis"],
+        }
+    )
+
+    pd.testing.assert_frame_equal(expected_results, reconciled)
+
+
 # Edge cases
-
-
-def test_fake_item():
-    with raises(requests.HTTPError):
-        reconcile(test_df["City"], type_id="FAKE_ITEM_GIVE_ERROR")
 
 
 def test_fake_top_res():
