@@ -2,7 +2,7 @@
 
 <!-- badges: start -->
 [![license](https://img.shields.io/badge/license-BSD%202--Clause-green)](https://github.com/jvfe/reconciler/blob/master/LICENSE)
-[![pytest status](https://github.com/jvfe/reconciler/workflows/reconciler/badge.svg)](https://github.com/jvfe/reconciler/actions)
+[![pytest status](https://github.com/jvfe/reconciler/workflows/pytest/badge.svg)](https://github.com/jvfe/reconciler/actions)
 [![documentation status](https://github.com/jvfe/reconciler/workflows/docs/badge.svg)](https://jvfe.github.io/reconciler/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4088488.svg)](https://doi.org/10.5281/zenodo.4088488)
 <!-- badges: end -->
