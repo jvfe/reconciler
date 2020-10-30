@@ -1,7 +1,8 @@
-from reconciler.webutils import parse_raw_results, return_reconciled_raw
-from tqdm import tqdm
-import pandas as pd
 import numpy as np
+import pandas as pd
+from tqdm import tqdm
+
+from reconciler.webutils import parse_raw_results, return_reconciled_raw
 
 
 def reconcile(

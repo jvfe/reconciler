@@ -1,9 +1,10 @@
+import json
 from collections import defaultdict
 from functools import lru_cache
-import json
-import requests
+
 import numpy as np
 import pandas as pd
+import requests
 
 
 def get_query_dict(df_column, type_id, has_property):
