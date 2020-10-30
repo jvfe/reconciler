@@ -1,20 +1,14 @@
-from reconciler import reconcile
-from pytest import raises
-import pandas as pd
 import numpy as np
-import requests
+import pandas as pd
+from pytest import raises
 
-test_df = pd.DataFrame(
-    {
-        "City": ["Rio de Janeiro", "São Paulo", "São Paulo", "Natal", "FAKE_CITY_HERE"],
-    }
-)
+from reconciler import reconcile
 
 
-def test_basic_reconcile():
+def test_basic_reconcile(city_data):
 
-    expected_last_column = pd.Series(test_df["City"].unique())
-    results = reconcile(test_df["City"], type_id="Q515")
+    expected_last_column = pd.Series(city_data["City"].unique())
+    results = reconcile(city_data["City"], type_id="Q515")
 
     assert results.shape == (4, 7)
     pd.testing.assert_series_equal(
@@ -22,9 +16,9 @@ def test_basic_reconcile():
     )
 
 
-def test_reconcile_without_type():
+def test_reconcile_without_type(city_data):
 
-    results = reconcile(test_df["City"])
+    results = reconcile(city_data["City"])
 
     expected_names = ["Rio de Janeiro", "São Paulo", "Christmas"]
 
@@ -33,61 +27,8 @@ def test_reconcile_without_type():
     assert retrieved == expected_names
 
 
-def test_long_reconcile():
+def test_long_reconcile(us_capitals):
 
-    us_capitals = {
-        "Alabama": "Montgomery",
-        "Alaska": "Juneau",
-        "Arizona": "Phoenix",
-        "Arkansas": "Little Rock",
-        "California": "Sacramento",
-        "Colorado": "Denver",
-        "Connecticut": "Hartford",
-        "Delaware": "Dover",
-        "Florida": "Tallahassee",
-        "Georgia": "Atlanta",
-        "Hawaii": "Honolulu",
-        "Idaho": "Boise",
-        "Illinios": "Springfield",
-        "Indiana": "Indianapolis",
-        "Iowa": "Des Monies",
-        "Kansas": "Topeka",
-        "Kentucky": "Frankfort",
-        "Louisiana": "Baton Rouge",
-        "Maine": "Augusta",
-        "Maryland": "Annapolis",
-        "Massachusetts": "Boston",
-        "Michigan": "Lansing",
-        "Minnesota": "St. Paul",
-        "Mississippi": "Jackson",
-        "Missouri": "Jefferson City",
-        "Montana": "Helena",
-        "Nebraska": "Lincoln",
-        "Neveda": "Carson City",
-        "New Hampshire": "Concord",
-        "New Jersey": "Trenton",
-        "New Mexico": "Santa Fe",
-        "New York": "Albany",
-        "North Carolina": "Raleigh",
-        "North Dakota": "Bismarck",
-        "Ohio": "Columbus",
-        "Oklahoma": "Oklahoma City",
-        "Oregon": "Salem",
-        "Pennsylvania": "Harrisburg",
-        "Rhoda Island": "Providence",
-        "South Carolina": "Columbia",
-        "South Dakoda": "Pierre",
-        "Tennessee": "Nashville",
-        "Texas": "Austin",
-        "Utah": "Salt Lake City",
-        "Vermont": "Montpelier",
-        "Virginia": "Richmond",
-        "Washington": "Olympia",
-        "West Virginia": "Charleston",
-        "Wisconsin": "Madison",
-        "Wyoming": "Cheyenne",
-        "USA": "Washington DC",
-    }
     df = pd.DataFrame.from_dict(us_capitals, orient="index", columns=["Capital"])
 
     results = reconcile(df["Capital"], type_id="Q515")
@@ -95,14 +36,10 @@ def test_long_reconcile():
     assert results.shape == (51, 7)
 
 
-def test_reconcile_against_triple():
-
-    gene_df = pd.DataFrame(
-        {"gene": ["BRCA1", "MAPK10"], "species": ["Homo sapiens", "Homo sapiens"]}
-    )
+def test_reconcile_against_triple(gene_data):
 
     results = reconcile(
-        gene_df["gene"], type_id="Q7187", has_property=("P703", "Q15978631")
+        gene_data["gene"], type_id="Q7187", has_property=("P703", "Q15978631")
     )
 
     assert results["id"][0] == "Q227339"
@@ -129,6 +66,6 @@ def test_no_results():
 # Edge cases
 
 
-def test_fake_top_res():
+def test_fake_top_res(city_data):
     with raises(ValueError):
-        reconcile(test_df["City"], type_id="Q515", top_res="I'm such a fake argument")
+        reconcile(city_data["City"], type_id="Q515", top_res="I'm such a fake argument")
