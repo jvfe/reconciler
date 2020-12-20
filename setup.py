@@ -1,6 +1,6 @@
 """The setup script."""
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
@@ -43,6 +43,11 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/jvfe/reconciler",
+    project_urls={
+        "Bug Tracker": "https://github.com/jvfe/reconciler/issues",
+        "Documentation": "https://jvfe.github.io/reconciler/",
+        "Source Code": "https://github.com/jvfe/reconciler",
+    },
     version="0.1.5",
     zip_safe=False,
 )
