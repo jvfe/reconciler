@@ -26,3 +26,7 @@
 ### 0.1.5 (2020-10-27)
 
 * Fixes bug on reconciler.reconcile when parsing empty results.
+
+### 0.1.6 (2020-12-20)
+
+* Minor styling fixes, start using isort.
