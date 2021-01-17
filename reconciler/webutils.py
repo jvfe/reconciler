@@ -7,7 +7,7 @@ import pandas as pd
 import requests
 
 
-def get_query_dict(df_column, type_id, has_property):
+def get_query_dict(df_column, type_id, property_mapping):
     """
     Convert a pandas DataFrame column to a query dictionary
 
@@ -30,11 +30,11 @@ def get_query_dict(df_column, type_id, has_property):
 
     for idx, value in enumerate(input_keys):
 
-        if (type_id and has_property) is not None:
+        if (type_id and property_mapping) is not None:
             reformatted[idx] = {
                 "query": value,
                 "type": type_id,
-                "properties": [{"pid": has_property[0], "v": {"id": has_property[1]}}],
+                "properties": [{"pid": property_mapping[0], "v": {"id": property_mapping[1]}}],
             }
         elif type_id is not None:
             reformatted[idx] = {"query": value, "type": type_id}
@@ -81,7 +81,7 @@ def perform_query(query_string, reconciliation_endpoint):
         raise requests.ConnectionError("Couldn't connect to reconciliation client")
 
 
-def return_reconciled_raw(df_column, type_id, has_property, reconciliation_endpoint):
+def return_reconciled_raw(df_column, type_id, property_mapping, reconciliation_endpoint):
     """Send reformatted dict for reconciliation
 
     This is just a wrapper around the other utility functions. The
@@ -101,7 +101,7 @@ def return_reconciled_raw(df_column, type_id, has_property, reconciliation_endpo
 
     """
 
-    input_keys, reformatted = get_query_dict(df_column, type_id, has_property)
+    input_keys, reformatted = get_query_dict(df_column, type_id, property_mapping)
     reconcilable_data = json.dumps({"queries": json.dumps(reformatted)})
     query_result = perform_query(reconcilable_data, reconciliation_endpoint)
 

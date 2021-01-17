@@ -9,7 +9,7 @@ def reconcile(
     column_to_reconcile,
     type_id=None,
     top_res=1,
-    has_property=None,
+    property_mapping=None,
     reconciliation_endpoint="https://wikidata.reconci.link/en/api",
 ):
     """
@@ -22,7 +22,7 @@ def reconcile(
     it is the item's 'instance of' property. There is also a top_res argument,
     to filter the retrieved matches, this can be either an int, corresponding to the number of
     matches you want to retrieve for each reconciled item, or 'all', to return all matches.
-    The has_property argument is an optional argument to denote a particular triple to reconcile
+    The property_mapping argument is an optional argument to denote a particular triple to reconcile
     against, so you could, for example, reconcile against items of a particular type, that have
     a specific property equals to some specific value. The reconciliation_endpoint argument corresponds
     to the reconciliation service you're trying to access, if no value is given, it will default to
@@ -37,7 +37,7 @@ def reconcile(
         top_res (int or str): The maximum number of matches to return for
             each reconciled item, defaults to one. To retrieve all matches,
             set it to 'all'.
-        has_property (tuple): Property-value pair of the items you want to
+        property_mapping (tuple): Property-value pair of the items you want to
             reconcile against. For example, ("P17", "Q155") to reconcile
             against items that have the property country equals to Brazil.
             This is optional and defaults to None.
@@ -64,7 +64,7 @@ def reconcile(
         input_keys, response = return_reconciled_raw(
             column,
             type_id,
-            has_property,
+            property_mapping,
             reconciliation_endpoint,
         )
 

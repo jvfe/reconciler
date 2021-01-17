@@ -39,7 +39,7 @@ def test_long_reconcile(us_capitals):
 def test_reconcile_against_triple(gene_data):
 
     results = reconcile(
-        gene_data["gene"], type_id="Q7187", has_property=("P703", "Q15978631")
+        gene_data["gene"], type_id="Q7187", property_mapping=("P703", "Q15978631")
     )
 
     assert results["id"][0] == "Q227339"
