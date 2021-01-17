@@ -31,14 +31,14 @@ def test_return_raw_results(city_data, endpoints):
         city_data["City"],
         type_id="Q515",
         reconciliation_endpoint=endpoints[0],
-        has_property=None,
+        property_mapping=None,
     )
 
     input_keys2, raw_res2 = return_reconciled_raw(
         city_data["City"],
         type_id="/ulan",
         reconciliation_endpoint=endpoints[1],
-        has_property=None,
+        property_mapping=None,
     )
 
     assert len(input_keys) and len(raw_res.keys()) == 4

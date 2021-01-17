@@ -107,7 +107,7 @@ def endpoints():
 def reformatted(city_data):
 
     _, reformatted = get_query_dict(
-        city_data["City"], type_id="Q515", has_property=None
+        city_data["City"], type_id="Q515", property_mapping=None
     )
 
     return reformatted

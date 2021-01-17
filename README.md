@@ -44,12 +44,12 @@ The resulting dataframe would look like this:
 | Q174    | True    | São Paulo      |     100 | city                   | Q515       | São Paulo      |
 | Q131620 | True    | Natal          |     100 | municipality of Brazil | Q3184121   | Natal          |
 
-In case you want to ensure the results are cities from Brazil, you can specify the has_property argument with
+In case you want to ensure the results are cities from Brazil, you can specify the property_mapping argument with
 a specific property-value pair:
 
 ```python
 # Reconcile against type city (Q515) and items have the country (P17) property equals to Brazil (Q155)
-reconciled = reconcile(test_df["City"], type_id="Q515", has_property=("P17", "Q155"))
+reconciled = reconcile(test_df["City"], type_id="Q515", property_mapping=("P17", "Q155"))
 ```
 
 ## Other very useful packages
