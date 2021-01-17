@@ -7,6 +7,20 @@ import pandas as pd
 import requests
 
 
+def create_property_array(df_column, property_mapping, current_value):
+
+    prop_mapping_list = []
+    for key, value in property_mapping.items():
+
+        prop_value = (
+            value.loc[df_column == current_value].to_string(index=False).strip()
+        )
+
+        prop_mapping_list.append({"pid": key, "v": prop_value})
+
+    return prop_mapping_list
+
+
 def get_query_dict(df_column, type_id, property_mapping):
     """
     Convert a pandas DataFrame column to a query dictionary
@@ -35,9 +49,9 @@ def get_query_dict(df_column, type_id, property_mapping):
         if type_id is not None:
             reformatted[idx]["type"] = type_id
         if property_mapping is not None:
-            reformatted[idx]["properties"] = [
-                {"pid": property_mapping[0], "v": property_mapping[1]}
-            ]
+            reformatted[idx]["properties"] = create_property_array(
+                df_column, property_mapping, value
+            )
 
     return input_keys, reformatted
 

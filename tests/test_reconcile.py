@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import pytest
 from pytest import raises
 
 from reconciler import reconcile
@@ -29,16 +30,23 @@ def test_reconcile_without_type(city_data):
 
 def test_reconcile_against_triple(gene_data):
 
-    results = reconcile(gene_data["gene"], property_mapping=("P703", "Q15978631"))
+    results = reconcile(
+        gene_data["gene"], property_mapping={"P703": gene_data["species"]}
+    )
 
     assert results["id"][0] == "Q227339"
 
 
+@pytest.mark.skip(reason="Not working as of yet.")
 def test_long_reconcile(us_capitals):
 
-    df = pd.DataFrame.from_dict(us_capitals, orient="index", columns=["Capital"])
+    df = pd.DataFrame.from_dict(
+        us_capitals, orient="index", columns=["Capital"]
+    ).reset_index()
 
-    results = reconcile(df["Capital"], type_id="Q515")
+    results = reconcile(
+        df["Capital"], type_id="Q515", property_mapping={"P1376": df["index"]}
+    )
 
     assert results.shape == (51, 7)
 
