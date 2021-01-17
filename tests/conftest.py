@@ -26,7 +26,7 @@ def city_data():
 def gene_data():
 
     gene_df = pd.DataFrame(
-        {"gene": ["BRCA1", "MAPK10"], "species": ["Homo sapiens", "Homo sapiens"]}
+        {"gene": ["BRCA1", "MAPK10"], "species": ["Q15978631", "Q15978631"]}
     )
 
     return gene_df
