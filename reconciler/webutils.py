@@ -30,16 +30,14 @@ def get_query_dict(df_column, type_id, property_mapping):
 
     for idx, value in enumerate(input_keys):
 
-        if (type_id and property_mapping) is not None:
-            reformatted[idx] = {
-                "query": value,
-                "type": type_id,
-                "properties": [{"pid": property_mapping[0], "v": {"id": property_mapping[1]}}],
-            }
-        elif type_id is not None:
-            reformatted[idx] = {"query": value, "type": type_id}
-        else:
-            reformatted[idx] = {"query": value}
+        reformatted[idx]["query"] = value
+
+        if type_id is not None:
+            reformatted[idx]["type"] = type_id
+        if property_mapping is not None:
+            reformatted[idx]["properties"] = [
+                {"pid": property_mapping[0], "v": property_mapping[1]}
+            ]
 
     return input_keys, reformatted
 
@@ -81,7 +79,9 @@ def perform_query(query_string, reconciliation_endpoint):
         raise requests.ConnectionError("Couldn't connect to reconciliation client")
 
 
-def return_reconciled_raw(df_column, type_id, property_mapping, reconciliation_endpoint):
+def return_reconciled_raw(
+    df_column, type_id, property_mapping, reconciliation_endpoint
+):
     """Send reformatted dict for reconciliation
 
     This is just a wrapper around the other utility functions. The

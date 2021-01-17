@@ -27,6 +27,13 @@ def test_reconcile_without_type(city_data):
     assert retrieved == expected_names
 
 
+def test_reconcile_against_triple(gene_data):
+
+    results = reconcile(gene_data["gene"], property_mapping=("P703", "Q15978631"))
+
+    assert results["id"][0] == "Q227339"
+
+
 def test_long_reconcile(us_capitals):
 
     df = pd.DataFrame.from_dict(us_capitals, orient="index", columns=["Capital"])
@@ -34,15 +41,6 @@ def test_long_reconcile(us_capitals):
     results = reconcile(df["Capital"], type_id="Q515")
 
     assert results.shape == (51, 7)
-
-
-def test_reconcile_against_triple(gene_data):
-
-    results = reconcile(
-        gene_data["gene"], type_id="Q7187", property_mapping=("P703", "Q15978631")
-    )
-
-    assert results["id"][0] == "Q227339"
 
 
 def test_no_results():
