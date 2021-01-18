@@ -29,6 +29,7 @@ import pandas as pd
 test_df = pd.DataFrame(
     {
         "City": ["Rio de Janeiro", "São Paulo", "São Paulo", "Natal"],
+        "Country": ["Q155", "Q155", "Q155", "Q155"]
     }
 )
 
@@ -49,7 +50,7 @@ a specific property-value pair:
 
 ```python
 # Reconcile against type city (Q515) and items have the country (P17) property equals to Brazil (Q155)
-reconciled = reconcile(test_df["City"], type_id="Q515", property_mapping=("P17", "Q155"))
+reconciled = reconcile(test_df["City"], type_id="Q515", property_mapping={"P17": test_df["Country"]})
 ```
 
 ## Other very useful packages

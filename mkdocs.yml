@@ -13,7 +13,8 @@ nav:
       - Reconciling cell types: examples/reconcile_cell_types.md
     - Reference:
       - Main module: reference/reconcile.md
-      - Utility module: reference/webutils.md
+      - Web utilities module: reference/webutils.md
+      - General utilities module: reference/utils.md
 repo_url: https://github.com/jvfe/reconciler
 theme:
   name: "material"
