@@ -48,6 +48,6 @@ setup(
         "Documentation": "https://jvfe.github.io/reconciler/",
         "Source Code": "https://github.com/jvfe/reconciler",
     },
-    version="0.1.6",
+    version="0.2.0",
     zip_safe=False,
 )
