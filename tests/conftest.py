@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from reconciler.webutils import get_query_dict
+from reconciler.utils import get_query_dict
 
 
 @pytest.fixture
