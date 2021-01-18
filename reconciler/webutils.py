@@ -60,6 +60,10 @@ def return_reconciled_raw(
         df_column (Series): A pandas Series to reconcile.
         type_id (str): A string specifying the item type to reconcile against,
             in Wikidata this corresponds to the 'instance of' property of an item.
+        property_mapping (dict): Property-column mapping of the items you want to
+            reconcile against. For example, {"P17": df['country']} to reconcile
+            against items that have the property country equals to the values
+            in the column country. This is optional and defaults to None.
         reconciliation_endpoint (str): A url to the reconciliation endpoint.
 
     Returns:

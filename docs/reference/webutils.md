@@ -1,10 +1,6 @@
 # reconciler.webutils
 
-The utilities module, for formatting and performing queries.
-
-**get_query_dict()**
-
-::: reconciler.webutils.get_query_dict 
+The web utilities module, for performing and parsing queries.
 
 **perform_query()**
 
