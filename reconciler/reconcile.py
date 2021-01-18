@@ -1,6 +1,4 @@
-import numpy as np
 import pandas as pd
-from tqdm import tqdm
 
 from reconciler.webutils import parse_raw_results, return_reconciled_raw
 
@@ -51,28 +49,14 @@ def reconcile(
         ValueError: top_res argument must be one of either 'all' or an integer.
     """
 
-    size_of_frames = 10
-    number_of_frames = int(len(column_to_reconcile) / size_of_frames)
-    frames = (
-        np.array_split(column_to_reconcile, number_of_frames)
-        if len(column_to_reconcile) > size_of_frames
-        else [column_to_reconcile]
+    input_keys, response = return_reconciled_raw(
+        column_to_reconcile,
+        type_id,
+        property_mapping,
+        reconciliation_endpoint,
     )
 
-    dfs = []
-    for column in tqdm(frames, position=0, leave=True):
-        input_keys, response = return_reconciled_raw(
-            column,
-            type_id,
-            property_mapping,
-            reconciliation_endpoint,
-        )
-
-        parsed = parse_raw_results(input_keys, response)
-
-        dfs.append(parsed)
-
-    full_df = pd.concat(dfs)
+    full_df = parse_raw_results(input_keys, response)
 
     if top_res == "all":
         return full_df

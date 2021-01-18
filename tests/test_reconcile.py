@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import pytest
 from pytest import raises
 
 from reconciler import reconcile
@@ -37,7 +36,6 @@ def test_reconcile_against_triple(gene_data):
     assert results["id"][0] == "Q227339"
 
 
-@pytest.mark.skip(reason="Not working as of yet.")
 def test_long_reconcile(us_capitals):
 
     df = pd.DataFrame.from_dict(

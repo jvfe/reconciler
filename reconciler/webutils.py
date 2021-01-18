@@ -1,24 +1,13 @@
 import json
-from collections import defaultdict
+from collections import ChainMap, defaultdict
 from functools import lru_cache
 
 import numpy as np
 import pandas as pd
 import requests
+from tqdm import tqdm
 
-
-def create_property_array(df_column, property_mapping, current_value):
-
-    prop_mapping_list = []
-    for key, value in property_mapping.items():
-
-        prop_value = (
-            value.loc[df_column == current_value].to_string(index=False).strip()
-        )
-
-        prop_mapping_list.append({"pid": key, "v": prop_value})
-
-    return prop_mapping_list
+from reconciler.utils import chunk_dictionary, create_property_array
 
 
 def get_query_dict(df_column, type_id, property_mapping):
@@ -116,10 +105,18 @@ def return_reconciled_raw(
     """
 
     input_keys, reformatted = get_query_dict(df_column, type_id, property_mapping)
-    reconcilable_data = json.dumps({"queries": json.dumps(reformatted)})
-    query_result = perform_query(reconcilable_data, reconciliation_endpoint)
 
-    return input_keys, query_result
+    query_results = []
+    chunked_dict = list(chunk_dictionary(reformatted))
+
+    for chunk in tqdm(chunked_dict, position=0, leave=True):
+        reconcilable_data = json.dumps({"queries": json.dumps(chunk)})
+        query_result = perform_query(reconcilable_data, reconciliation_endpoint)
+        query_results.append(query_result)
+
+    merged_results = dict(ChainMap(*query_results))
+
+    return input_keys, merged_results
 
 
 def parse_raw_results(input_keys, response):
