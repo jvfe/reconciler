@@ -7,7 +7,7 @@ import pandas as pd
 import requests
 from tqdm import tqdm
 
-from reconciler.utils import get_query_dict, chunk_dictionary
+from reconciler.utils import chunk_dictionary, get_query_dict
 
 
 @lru_cache(maxsize=None)
