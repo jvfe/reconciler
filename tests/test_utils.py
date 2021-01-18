@@ -1,6 +1,6 @@
 import pandas as pd
 
-from reconciler.utils import get_query_dict
+from reconciler.utils import chunk_dictionary, get_query_dict
 
 
 def test_get_query_dict(reformatted):
@@ -48,3 +48,10 @@ def test_query_dict_w_mapping():
     )
 
     assert expected == reformatted
+
+
+def test_chunk_dictionary(us_capitals):
+
+    chunked = list(chunk_dictionary(us_capitals))
+
+    assert len(chunked) == 6

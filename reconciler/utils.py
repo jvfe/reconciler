@@ -1,5 +1,5 @@
-from itertools import islice
 from collections import defaultdict
+from itertools import islice
 
 import pandas as pd
 
