@@ -1,5 +1,5 @@
 import json
-from collections import ChainMap, defaultdict
+from collections import ChainMap
 from functools import lru_cache
 
 import numpy as np
@@ -7,42 +7,7 @@ import pandas as pd
 import requests
 from tqdm import tqdm
 
-from reconciler.utils import chunk_dictionary, create_property_array
-
-
-def get_query_dict(df_column, type_id, property_mapping):
-    """
-    Convert a pandas DataFrame column to a query dictionary
-
-    The reconciliation API requires a json request formatted in a
-    very particular way. This function takes in a DataFrame column
-    and reformats it.
-
-    Args:
-        df_column (Series): A pandas Series to reconcile.
-        type_id (str): A string specifying the item type to reconcile against,
-            in Wikidata this corresponds to the 'instance of' property of an item.
-
-    Returns:
-        tuple: A tuple containing the list of the original values
-            sent to reconciliation a dictionary with the
-            column values reformatted.
-    """
-    input_keys = df_column.unique()
-    reformatted = defaultdict(dict)
-
-    for idx, value in enumerate(input_keys):
-
-        reformatted[idx]["query"] = value
-
-        if type_id is not None:
-            reformatted[idx]["type"] = type_id
-        if property_mapping is not None:
-            reformatted[idx]["properties"] = create_property_array(
-                df_column, property_mapping, value
-            )
-
-    return input_keys, reformatted
+from reconciler.utils import get_query_dict, chunk_dictionary
 
 
 @lru_cache(maxsize=None)
