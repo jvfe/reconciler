@@ -13,14 +13,14 @@
         <meta name="author" content="jvfe">
       
       
-        <link rel="canonical" href="https://jvfe.github.io/reconciler/reference/webutils/">
+        <link rel="canonical" href="https://jvfe.github.io/reconciler/reference/utils/">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
     
     
       
-        <title>Web utilities module - reconciler</title>
+        <title>General utilities module - reconciler</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reconcilerwebutils" class="md-skip">
+        <a href="#reconcilerutils" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Web utilities module
+              General utilities module
             
           </span>
         </div>
@@ -385,6 +385,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../webutils/" class="md-nav__link">
+        Web utilities module
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -396,12 +408,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Web utilities module
+          General utilities module
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Web utilities module
+        General utilities module
       </a>
       
         
@@ -418,22 +430,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reconciler.webutils.perform_query" class="md-nav__link">
-    reconciler.webutils.perform_query
+  <a href="#reconciler.utils.get_query_dict" class="md-nav__link">
+    reconciler.utils.get_query_dict
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#reconciler.webutils.return_reconciled_raw" class="md-nav__link">
-    reconciler.webutils.return_reconciled_raw
+  <a href="#reconciler.utils.create_property_array" class="md-nav__link">
+    reconciler.utils.create_property_array
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#reconciler.webutils.parse_raw_results" class="md-nav__link">
-    reconciler.webutils.parse_raw_results
+  <a href="#reconciler.utils.chunk_dictionary" class="md-nav__link">
+    reconciler.utils.chunk_dictionary
   </a>
   
 </li>
@@ -442,18 +454,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../utils/" class="md-nav__link">
-        General utilities module
-      </a>
     </li>
   
 
@@ -489,22 +489,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reconciler.webutils.perform_query" class="md-nav__link">
-    reconciler.webutils.perform_query
+  <a href="#reconciler.utils.get_query_dict" class="md-nav__link">
+    reconciler.utils.get_query_dict
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#reconciler.webutils.return_reconciled_raw" class="md-nav__link">
-    reconciler.webutils.return_reconciled_raw
+  <a href="#reconciler.utils.create_property_array" class="md-nav__link">
+    reconciler.utils.create_property_array
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#reconciler.webutils.parse_raw_results" class="md-nav__link">
-    reconciler.webutils.parse_raw_results
+  <a href="#reconciler.utils.chunk_dictionary" class="md-nav__link">
+    reconciler.utils.chunk_dictionary
   </a>
   
 </li>
@@ -521,140 +521,21 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/jvfe/reconciler/edit/master/docs/reference/webutils.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/jvfe/reconciler/edit/master/docs/reference/utils.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="reconcilerwebutils">reconciler.webutils</h1>
-<p>The web utilities module, for performing and parsing queries.</p>
-<p><strong>perform_query()</strong></p>
+                <h1 id="reconcilerutils">reconciler.utils</h1>
+<p><strong>get_query_dict()</strong></p>
 <div class="doc doc-object doc-function">
-<h2 class="hidden-toc" id="reconciler.webutils.perform_query" style="visibility: hidden; position: absolute;">
+<h2 class="hidden-toc" id="reconciler.utils.get_query_dict" style="visibility: hidden; position: absolute;">
         </h2>
 <div class="doc doc-contents first">
-<p>Make a post request to the reconciliation API</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>query_string</code></td>
-<td><code>str</code></td>
-<td>
-<p>A string corresponding to the query JSON.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>reconciliation_endpoint</code></td>
-<td><code>str</code></td>
-<td>
-<p>A url to the reconciliation endpoint.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dict</code></td>
-<td>
-<p>A dictionary (JSON) with the query results.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Exceptions:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>requests.HTTPError</code></td>
-<td>
-<p>The query returned an error, check if you mistyped an argument.</p>
-</td>
-</tr>
-<tr>
-<td><code>requests.ConnectionError</code></td>
-<td>
-<p>Couldn't connect to reconciliation client.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-          <summary>Source code in <code>reconciler/webutils.py</code></summary>
-          <div class="highlight">
-<pre><span></span><code><span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">perform_query</span><span class="p">(</span><span class="n">query_string</span><span class="p">,</span> <span class="n">reconciliation_endpoint</span><span class="p">):</span>
-    <span class="sd">"""Make a post request to the reconciliation API</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        query_string (str): A string corresponding to the query JSON.</span>
-<span class="sd">        reconciliation_endpoint (str): A url to the reconciliation endpoint.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        dict: A dictionary (JSON) with the query results.</span>
-
-<span class="sd">    Raises:</span>
-<span class="sd">        requests.HTTPError: The query returned an error, check if you mistyped an argument.</span>
-<span class="sd">        requests.ConnectionError: Couldn't connect to reconciliation client.</span>
-
-<span class="sd">    """</span>
-
-    <span class="n">tries</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">tries</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-                <span class="n">reconciliation_endpoint</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">query_string</span><span class="p">)</span>
-            <span class="p">)</span>
-        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">:</span>
-            <span class="n">tries</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">query_result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-            <span class="k">if</span> <span class="s2">"status"</span> <span class="ow">in</span> <span class="n">query_result</span> <span class="ow">and</span> <span class="n">query_result</span><span class="p">[</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"error"</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">requests</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">(</span>
-                    <span class="s2">"The query returned an error, check if you mistyped an argument."</span>
-                <span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">query_result</span>
-    <span class="k">if</span> <span class="n">tries</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="n">requests</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">(</span><span class="s2">"Couldn't connect to reconciliation client"</span><span class="p">)</span>
-</code></pre>
-</div>
-</details>
-</div>
-</div>
-<p><strong>return_reconciled_raw()</strong></p>
-<div class="doc doc-object doc-function">
-<h2 class="hidden-toc" id="reconciler.webutils.return_reconciled_raw" style="visibility: hidden; position: absolute;">
-        </h2>
-<div class="doc doc-contents first">
-<p>Send reformatted dict for reconciliation</p>
-<p>This is just a wrapper around the other utility functions. The
-only thing it actually does is convert the query dict to an
-appropriate JSON string.</p>
+<p>Convert a pandas DataFrame column to a query dictionary</p>
+<p>The reconciliation API requires a json request formatted in a
+very particular way. This function takes in a DataFrame column
+and reformats it.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -694,14 +575,6 @@ in the column country. This is optional and defaults to None.</p>
 </td>
 <td><em>required</em></td>
 </tr>
-<tr>
-<td><code>reconciliation_endpoint</code></td>
-<td><code>str</code></td>
-<td>
-<p>A url to the reconciliation endpoint.</p>
-</td>
-<td><em>required</em></td>
-</tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong></p>
@@ -717,23 +590,22 @@ in the column country. This is optional and defaults to None.</p>
 <td><code>tuple</code></td>
 <td>
 <p>A tuple containing the list of the original values
-    sent to reconciliation and a dictionary (JSON)
-    with the query results.</p>
+    sent to reconciliation a dictionary with the
+    column values reformatted.</p>
 </td>
 </tr>
 </tbody>
 </table>
 <details class="quote">
-          <summary>Source code in <code>reconciler/webutils.py</code></summary>
+          <summary>Source code in <code>reconciler/utils.py</code></summary>
           <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">return_reconciled_raw</span><span class="p">(</span>
-    <span class="n">df_column</span><span class="p">,</span> <span class="n">type_id</span><span class="p">,</span> <span class="n">property_mapping</span><span class="p">,</span> <span class="n">reconciliation_endpoint</span>
-<span class="p">):</span>
-    <span class="sd">"""Send reformatted dict for reconciliation</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_query_dict</span><span class="p">(</span><span class="n">df_column</span><span class="p">,</span> <span class="n">type_id</span><span class="p">,</span> <span class="n">property_mapping</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Convert a pandas DataFrame column to a query dictionary</span>
 
-<span class="sd">    This is just a wrapper around the other utility functions. The</span>
-<span class="sd">    only thing it actually does is convert the query dict to an</span>
-<span class="sd">    appropriate JSON string.</span>
+<span class="sd">    The reconciliation API requires a json request formatted in a</span>
+<span class="sd">    very particular way. This function takes in a DataFrame column</span>
+<span class="sd">    and reformats it.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        df_column (Series): A pandas Series to reconcile.</span>
@@ -743,39 +615,38 @@ in the column country. This is optional and defaults to None.</p>
 <span class="sd">            reconcile against. For example, {"P17": df['country']} to reconcile</span>
 <span class="sd">            against items that have the property country equals to the values</span>
 <span class="sd">            in the column country. This is optional and defaults to None.</span>
-<span class="sd">        reconciliation_endpoint (str): A url to the reconciliation endpoint.</span>
-
 <span class="sd">    Returns:</span>
 <span class="sd">        tuple: A tuple containing the list of the original values</span>
-<span class="sd">            sent to reconciliation and a dictionary (JSON)</span>
-<span class="sd">            with the query results.</span>
-
+<span class="sd">            sent to reconciliation a dictionary with the</span>
+<span class="sd">            column values reformatted.</span>
 <span class="sd">    """</span>
+    <span class="n">input_keys</span> <span class="o">=</span> <span class="n">df_column</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="n">reformatted</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
 
-    <span class="n">input_keys</span><span class="p">,</span> <span class="n">reformatted</span> <span class="o">=</span> <span class="n">get_query_dict</span><span class="p">(</span><span class="n">df_column</span><span class="p">,</span> <span class="n">type_id</span><span class="p">,</span> <span class="n">property_mapping</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_keys</span><span class="p">):</span>
 
-    <span class="n">query_results</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">chunked_dict</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">chunk_dictionary</span><span class="p">(</span><span class="n">reformatted</span><span class="p">))</span>
+        <span class="n">reformatted</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">"query"</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
-    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">chunked_dict</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="n">reconcilable_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">"queries"</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">chunk</span><span class="p">)})</span>
-        <span class="n">query_result</span> <span class="o">=</span> <span class="n">perform_query</span><span class="p">(</span><span class="n">reconcilable_data</span><span class="p">,</span> <span class="n">reconciliation_endpoint</span><span class="p">)</span>
-        <span class="n">query_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">query_result</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">type_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">reformatted</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">=</span> <span class="n">type_id</span>
+        <span class="k">if</span> <span class="n">property_mapping</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">reformatted</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">"properties"</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_property_array</span><span class="p">(</span>
+                <span class="n">df_column</span><span class="p">,</span> <span class="n">property_mapping</span><span class="p">,</span> <span class="n">value</span>
+            <span class="p">)</span>
 
-    <span class="n">merged_results</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">ChainMap</span><span class="p">(</span><span class="o">*</span><span class="n">query_results</span><span class="p">))</span>
-
-    <span class="k">return</span> <span class="n">input_keys</span><span class="p">,</span> <span class="n">merged_results</span>
+    <span class="k">return</span> <span class="n">input_keys</span><span class="p">,</span> <span class="n">reformatted</span>
 </code></pre>
 </div>
 </details>
 </div>
 </div>
-<p><strong>parse_raw_results()</strong></p>
+<p><strong>create_property_array()</strong></p>
 <div class="doc doc-object doc-function">
-<h2 class="hidden-toc" id="reconciler.webutils.parse_raw_results" style="visibility: hidden; position: absolute;">
+<h2 class="hidden-toc" id="reconciler.utils.create_property_array" style="visibility: hidden; position: absolute;">
         </h2>
 <div class="doc doc-contents first">
-<p>Parse JSON query result</p>
+<p>Create a query JSON 'properties' array</p>
+<p>Creates the properties array necessary for when the property_mapping is defined.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -788,20 +659,26 @@ in the column country. This is optional and defaults to None.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>input_keys</code></td>
-<td><code>list</code></td>
+<td><code>df_column</code></td>
+<td><code>Series</code></td>
 <td>
-<p>A list with the original input values
-that were used to reconcile.</p>
+<p>A pandas Series to reconcile.</p>
 </td>
 <td><em>required</em></td>
 </tr>
 <tr>
-<td><code>response</code></td>
+<td><code>property_mapping</code></td>
 <td><code>dict</code></td>
 <td>
-<p>A dict corresponding to the raw JSON response
-from the reconciliation API.</p>
+<p>The property-column mapping dictionary.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>current_value</code></td>
+<td><code>str</code></td>
+<td>
+<p>Current iteration through the input_keys</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -817,58 +694,118 @@ from the reconciliation API.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>DataFrame</code></td>
+<td><code>list</code></td>
 <td>
-<p>A Pandas DataFrame with all the results.</p>
+<p>A list of dictionaries corresponding to the properties.</p>
 </td>
 </tr>
 </tbody>
 </table>
 <details class="quote">
-          <summary>Source code in <code>reconciler/webutils.py</code></summary>
+          <summary>Source code in <code>reconciler/utils.py</code></summary>
           <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">parse_raw_results</span><span class="p">(</span><span class="n">input_keys</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">create_property_array</span><span class="p">(</span><span class="n">df_column</span><span class="p">,</span> <span class="n">property_mapping</span><span class="p">,</span> <span class="n">current_value</span><span class="p">):</span>
     <span class="sd">"""</span>
-<span class="sd">    Parse JSON query result</span>
+<span class="sd">    Create a query JSON 'properties' array</span>
+
+<span class="sd">    Creates the properties array necessary for when the property_mapping is defined.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        input_keys (list): A list with the original input values</span>
-<span class="sd">            that were used to reconcile.</span>
-<span class="sd">        response (dict): A dict corresponding to the raw JSON response</span>
-<span class="sd">            from the reconciliation API.</span>
+<span class="sd">        df_column (Series): A pandas Series to reconcile.</span>
+<span class="sd">        property_mapping (dict): The property-column mapping dictionary.</span>
+<span class="sd">        current_value (str): Current iteration through the input_keys</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        DataFrame: A Pandas DataFrame with all the results.</span>
+<span class="sd">        list: A list of dictionaries corresponding to the properties.</span>
 <span class="sd">    """</span>
 
-    <span class="n">res_keys</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">prop_mapping_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">property_mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 
-    <span class="n">dfs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">res_keys</span><span class="p">):</span>
+        <span class="n">prop_value</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">value</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_column</span> <span class="o">==</span> <span class="n">current_value</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="p">)</span>
 
-        <span class="n">current_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">"result"</span><span class="p">])</span>
+        <span class="n">prop_mapping_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"pid"</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="s2">"v"</span><span class="p">:</span> <span class="n">prop_value</span><span class="p">})</span>
 
-        <span class="k">if</span> <span class="n">current_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-            <span class="n">current_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-                <span class="p">{</span>
-                    <span class="s2">"id"</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">],</span>
-                    <span class="s2">"match"</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">],</span>
-                <span class="p">}</span>
-            <span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">current_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">"features"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-                <span class="n">current_df</span><span class="p">[</span><span class="s2">"type_id"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"id"</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current_df</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]]</span>
-                <span class="n">current_df</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current_df</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]]</span>
-            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-                <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">prop_mapping_list</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<p><strong>chunk_dictionary()</strong></p>
+<div class="doc doc-object doc-function">
+<h2 class="hidden-toc" id="reconciler.utils.chunk_dictionary" style="visibility: hidden; position: absolute;">
+        </h2>
+<div class="doc doc-contents first">
+<p>Split a large dictionary into equal-sized dictionaries</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>dict</code></td>
+<td>
+<p>The dictionary to be split.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td><code>int</code></td>
+<td>
+<p>The size the smaller dictionaries are supposed to be.</p>
+</td>
+<td><code>10</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dict</code></td>
+<td>
+<p>A subdivision of the larger dictionary, of the
+    corresponding size.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>reconciler/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">chunk_dictionary</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Split a large dictionary into equal-sized dictionaries</span>
 
-        <span class="n">current_df</span><span class="p">[</span><span class="s2">"input_value"</span><span class="p">]</span> <span class="o">=</span> <span class="n">input_keys</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-        <span class="n">dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_df</span><span class="p">)</span>
+<span class="sd">    Args:</span>
+<span class="sd">        data (dict): The dictionary to be split.</span>
+<span class="sd">        size (int): The size the smaller dictionaries are supposed to be.</span>
 
-    <span class="n">concatenated</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">concatenated</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: A subdivision of the larger dictionary, of the</span>
+<span class="sd">            corresponding size.</span>
+<span class="sd">    """</span>
+    <span class="c1"># https://stackoverflow.com/questions/22878743/how-to-split-dictionary-into-multiple-dictionaries-fast</span>
+    <span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">size</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">islice</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="n">size</span><span class="p">)}</span>
 </code></pre>
 </div>
 </details>
@@ -892,7 +829,7 @@ from the reconciliation API.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../reconcile/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../webutils/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -901,25 +838,11 @@ from the reconciliation API.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Main module
+                Web utilities module
               </div>
             </div>
           </a>
         
-        
-          <a href="../utils/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                General utilities module
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
         
       </nav>
     </div>
