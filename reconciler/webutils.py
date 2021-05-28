@@ -121,7 +121,7 @@ def parse_raw_results(input_keys, response):
                 current_df.drop(["features"], axis=1, inplace=True)
                 current_df["type_id"] = [item[0]["id"] for item in current_df["type"]]
                 current_df["type"] = [item[0]["name"] for item in current_df["type"]]
-            except IndexError:
+            except (IndexError, KeyError):
                 pass
 
         current_df["input_value"] = input_keys[idx]
