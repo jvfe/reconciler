@@ -53,6 +53,14 @@ a specific property-value pair:
 reconciled = reconcile(test_df["City"], type_id="Q515", property_mapping={"P17": test_df["Country"]})
 ```
 
+## Options
+The `reconcile()` function accepts several options.
+
+* `type_id` - The type of items to reconcile against per the [API specification](https://reconciliation-api.github.io/specs/latest/#structure-of-a-reconciliation-query).
+* `top_res` - Either the number of results to return per entry or the string 'all' to return all results.
+* `property_mapping` - A list of properties to filter results on per the [API specification](https://reconciliation-api.github.io/specs/latest/#structure-of-a-reconciliation-query).
+* `reconciliation_endpoint` - The reconciliation service to connect to.  Defaults to `https://wikidata.reconci.link/en/api`.
+
 ## Other very useful packages
 
 Although my opinion may be biased, I think `reconciler` is a pretty nice package.
