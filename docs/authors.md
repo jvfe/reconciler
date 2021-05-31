@@ -4,4 +4,4 @@
 
 ## Contributors
 
-None yet. Why not be the first?
+* [gitonthescene](https://github.com/gitonthescene)

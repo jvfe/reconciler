@@ -1,5 +1,11 @@
 # History
 
+### 0.2.1 (2021-05-31)
+
+* Adds options section to README (#11)
+* Fixes bug by handling both IndexErrors and KeyErrors on webutils.py (#11)
+* Changes the name of the main module to avoid conflicts (#13)
+
 ### 0.2.0 (2021-01-18)
 
 * Various refactorings in the utilities modules to make the code better
