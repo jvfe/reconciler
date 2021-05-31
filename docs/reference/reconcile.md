@@ -1,9 +1,9 @@
-# reconciler.reconcile
+# reconciler.main
 
 The main module, containing the functions intended for end-users.
 
 
 **reconcile()**
 
-::: reconciler.reconcile.reconcile 
+::: reconciler.main.reconcile 
 
