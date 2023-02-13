@@ -10,7 +10,7 @@ def test_basic_reconcile(city_data):
     expected_last_column = pd.Series(city_data["City"].unique())
     results = reconcile(city_data["City"], type_id="Q515")
 
-    assert results.shape == (4, 7)
+    assert results.shape == (4, 8)
     pd.testing.assert_series_equal(
         expected_last_column, results["input_value"], check_names=False
     )
@@ -46,7 +46,7 @@ def test_long_reconcile(us_capitals):
         df["Capital"], type_id="Q515", property_mapping={"P1376": df["index"]}
     )
 
-    assert results.shape == (51, 7)
+    assert results.shape == (51, 8)
 
 
 def test_no_results():

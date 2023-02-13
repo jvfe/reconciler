@@ -1,4 +1,6 @@
 import json
+import logging
+
 from collections import ChainMap
 from functools import lru_cache
 
@@ -9,9 +11,11 @@ from tqdm import tqdm
 
 from reconciler.utils import chunk_dictionary, get_query_dict
 
+http = requests.Session()
+logger = logging.getLogger('reconciler')
 
 @lru_cache(maxsize=None)
-def perform_query(query_string, reconciliation_endpoint):
+def perform_query(query_string, reconciliation_endpoint, max_tries=10):
     """Make a post request to the reconciliation API
 
     Args:
@@ -28,11 +32,15 @@ def perform_query(query_string, reconciliation_endpoint):
     """
 
     tries = 0
-    while tries < 3:
+    while tries < max_tries:
         try:
-            response = requests.post(
+            response = http.post(
                 reconciliation_endpoint, data=json.loads(query_string)
             )
+            # HTTP Service Unavailable
+            if response.status_code == 503:
+                tries += 1 
+                continue
         except requests.ConnectionError:
             tries += 1
         else:
@@ -43,8 +51,10 @@ def perform_query(query_string, reconciliation_endpoint):
                 )
             else:
                 return query_result
-    if tries == 3:
-        raise requests.ConnectionError("Couldn't connect to reconciliation client")
+        logger.warn('Encountered an error trying again (tries=%s)', tries)
+    if tries == max_tries:
+        logger.warn('Too many errors (%s) while talking to reconcilitation server', max_tries)
+        raise requests.ConnectionError("Couldn't connect to reconciliation server")
 
 
 def return_reconciled_raw(
@@ -79,6 +89,7 @@ def return_reconciled_raw(
     chunked_dict = list(chunk_dictionary(reformatted))
 
     for chunk in tqdm(chunked_dict, position=0, leave=True):
+        logger.debug('reconciling: %s', chunk)
         reconcilable_data = json.dumps({"queries": json.dumps(chunk)})
         query_result = perform_query(reconcilable_data, reconciliation_endpoint)
         query_results.append(query_result)
