@@ -123,7 +123,7 @@ def parse_raw_results(input_keys, response):
         if current_df.empty:
             current_df = pd.DataFrame(
                 {
-                    "id": [np.NaN],
+                    "id": [np.nan],
                     "match": [False],
                 }
             )
