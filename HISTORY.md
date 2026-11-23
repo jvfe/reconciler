@@ -1,5 +1,14 @@
 # History
 
+### 0.2.3 (2026-11-23)
+
+* Fixes NumPy 2.0 compatibility by replacing `np.NaN` with `np.nan` in `webutils.py` (#19) and `tests/test_reconcile.py`.
+
+### 0.2.2 (2023-02-15)
+
+* Adds logging (#16).
+* Fixes broken documentation references and docs CI configuration.
+
 ### 0.2.1 (2021-05-31)
 
 * Adds options section to README (#11)

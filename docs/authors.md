@@ -5,3 +5,4 @@
 ## Contributors
 
 * [gitonthescene](https://github.com/gitonthescene)
+* [mschleie](https://github.com/mschleie)
