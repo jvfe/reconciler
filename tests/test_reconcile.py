@@ -58,7 +58,7 @@ def test_no_results():
 
     expected_results = pd.DataFrame(
         {
-            "id": [np.NaN],
+            "id": [np.nan],
             "match": [False],
             "input_value": ["Querula rubricollis"],
         }
