@@ -20,8 +20,12 @@
       
         <link rel="next" href="../utils/">
       
+      
+        
+      
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -29,14 +33,14 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0d440cfe.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
       
 
+
     
+    
+      
     
     
       
@@ -50,24 +54,17 @@
     
       <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-    
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
-    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -87,16 +84,19 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="reconciler" class="md-header__button md-logo" aria-label="reconciler" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -116,29 +116,38 @@
     </div>
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -149,13 +158,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/jvfe/reconciler" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -185,12 +195,13 @@
                     
 
 
+
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="reconciler" class="md-nav__button md-logo" aria-label="reconciler" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     reconciler
@@ -200,7 +211,7 @@
       <a href="https://github.com/jvfe/reconciler" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -212,14 +223,26 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
-        Home
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -227,14 +250,26 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../installing/" class="md-nav__link">
-        Installation
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -242,14 +277,26 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../history/" class="md-nav__link">
-        Version history
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version history
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -257,166 +304,279 @@
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-          Contributing
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Contributing
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
           
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Contributing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../contributing/" class="md-nav__link">
-        Contribution guide
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../authors/" class="md-nav__link">
-        Contributors
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributors
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-          Example usage
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Example usage
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
           
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Example usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../examples/reconcile_cell_types/" class="md-nav__link">
-        Reconciling cell types
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reconciling cell types
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
   
   
     
   
   
+  
+    
+    
+    
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
-      
-      
-      
-        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-          Reference
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          Reference
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
           
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../reconcile/" class="md-nav__link">
-        Main module
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main module
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
@@ -428,12 +588,38 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Web utilities module
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web utilities module
+  
+
+    
+  </span>
+  
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Web utilities module
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web utilities module
+  
+
+    
+  </span>
+  
+  
+
       </a>
       
         
@@ -453,21 +639,33 @@
       
         <li class="md-nav__item">
   <a href="#reconciler.webutils.perform_query" class="md-nav__link">
-    reconciler.webutils.perform_query
+    <span class="md-ellipsis">
+      
+        perform_query
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#reconciler.webutils.return_reconciled_raw" class="md-nav__link">
-    reconciler.webutils.return_reconciled_raw
+    <span class="md-ellipsis">
+      
+        return_reconciled_raw
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#reconciler.main.parse_raw_results" class="md-nav__link">
-    reconciler.main.parse_raw_results
+    <span class="md-ellipsis">
+      
+        parse_raw_results
+      
+    </span>
   </a>
   
 </li>
@@ -479,24 +677,39 @@
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../utils/" class="md-nav__link">
-        General utilities module
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General utilities module
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -529,21 +742,33 @@
       
         <li class="md-nav__item">
   <a href="#reconciler.webutils.perform_query" class="md-nav__link">
-    reconciler.webutils.perform_query
+    <span class="md-ellipsis">
+      
+        perform_query
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#reconciler.webutils.return_reconciled_raw" class="md-nav__link">
-    reconciler.webutils.return_reconciled_raw
+    <span class="md-ellipsis">
+      
+        return_reconciled_raw
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#reconciler.main.parse_raw_results" class="md-nav__link">
-    reconciler.main.parse_raw_results
+    <span class="md-ellipsis">
+      
+        parse_raw_results
+      
+    </span>
   </a>
   
 </li>
@@ -558,13 +783,14 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-  
-  
 
+  
+  
 
 
 <h1 id="reconcilerwebutils">reconciler.webutils</h1>
@@ -575,89 +801,118 @@
 <div class="doc doc-object doc-function">
 
 
+
 <a id="reconciler.webutils.perform_query"></a>
-  <div class="doc doc-contents first">
-  
-      <p>Make a post request to the reconciliation API</p>
+    <div class="doc doc-contents first">
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>query_string</code></td>
-          <td>
-                <code>str</code>
-          </td>
-          <td><p>A string corresponding to the query JSON.</p></td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>reconciliation_endpoint</code></td>
-          <td>
-                <code>str</code>
-          </td>
-          <td><p>A url to the reconciliation endpoint.</p></td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        <p>Make a post request to the reconciliation API</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>dict</code></td>          <td>
-          </td>
-          <td><p>A dictionary (JSON) with the query results.</p></td>
-        </tr>
-    </tbody>
-  </table>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
         <tr>
-          <td>
-                <code>requests.<span title="requests.HTTPError">HTTPError</span></code>
-          </td>
-          <td><p>The query returned an error, check if you mistyped an argument.</p></td>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
         </tr>
-        <tr>
-          <td>
-                <code>requests.<span title="requests.ConnectionError">ConnectionError</span></code>
-          </td>
-          <td><p>Couldn't connect to reconciliation client.</p></td>
-        </tr>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>query_string</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A string corresponding to the query JSON.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reconciliation_endpoint</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A url to the reconciliation endpoint.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
-      <details class="quote">
-        <summary>Source code in <code>reconciler/webutils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">17</span>
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>dict</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary (JSON) with the query results.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="requests.HTTPError">HTTPError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The query returned an error, check if you mistyped an argument.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="requests.ConnectionError">ConnectionError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Couldn't connect to reconciliation client.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>reconciler/webutils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
@@ -698,8 +953,8 @@
 <span class="normal">55</span>
 <span class="normal">56</span>
 <span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">perform_query</span><span class="p">(</span><span class="n">query_string</span><span class="p">,</span> <span class="n">reconciliation_endpoint</span><span class="p">,</span> <span class="n">max_tries</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make a post request to the reconciliation API</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">perform_query</span><span class="p">(</span><span class="n">query_string</span><span class="p">,</span> <span class="n">reconciliation_endpoint</span><span class="p">,</span> <span class="n">max_tries</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Make a post request to the reconciliation API</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        query_string (str): A string corresponding to the query JSON.</span>
@@ -710,9 +965,9 @@
 
 <span class="sd">    Raises:</span>
 <span class="sd">        requests.HTTPError: The query returned an error, check if you mistyped an argument.</span>
-<span class="sd">        requests.ConnectionError: Couldn&#39;t connect to reconciliation client.</span>
+<span class="sd">        requests.ConnectionError: Couldn't connect to reconciliation client.</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">tries</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="n">tries</span> <span class="o">&lt;</span> <span class="n">max_tries</span><span class="p">:</span>
@@ -728,19 +983,19 @@
             <span class="n">tries</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">query_result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-            <span class="k">if</span> <span class="s2">&quot;status&quot;</span> <span class="ow">in</span> <span class="n">query_result</span> <span class="ow">and</span> <span class="n">query_result</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;error&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">"status"</span> <span class="ow">in</span> <span class="n">query_result</span> <span class="ow">and</span> <span class="n">query_result</span><span class="p">[</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"error"</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">requests</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">(</span>
-                    <span class="s2">&quot;The query returned an error, check if you mistyped an argument.&quot;</span>
+                    <span class="s2">"The query returned an error, check if you mistyped an argument."</span>
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">query_result</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Encountered an error trying again (tries=</span><span class="si">%s</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">tries</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">'Encountered an error trying again (tries=</span><span class="si">%s</span><span class="s1">)'</span><span class="p">,</span> <span class="n">tries</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">tries</span> <span class="o">==</span> <span class="n">max_tries</span><span class="p">:</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Too many errors (</span><span class="si">%s</span><span class="s1">) while talking to reconcilitation server&#39;</span><span class="p">,</span> <span class="n">max_tries</span><span class="p">)</span>
-        <span class="k">raise</span> <span class="n">requests</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">(</span><span class="s2">&quot;Couldn&#39;t connect to reconciliation server&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">'Too many errors (</span><span class="si">%s</span><span class="s1">) while talking to reconcilitation server'</span><span class="p">,</span> <span class="n">max_tries</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">requests</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">(</span><span class="s2">"Couldn't connect to reconciliation server"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-      </details>
-  </div>
+            </details>
+    </div>
 
 </div><p><strong>return_reconciled_raw()</strong></p>
 
@@ -748,94 +1003,126 @@
 <div class="doc doc-object doc-function">
 
 
+
 <a id="reconciler.webutils.return_reconciled_raw"></a>
-  <div class="doc doc-contents first">
-  
-      <p>Send reformatted dict for reconciliation</p>
+    <div class="doc doc-contents first">
+
+        <p>Send reformatted dict for reconciliation</p>
 <p>This is just a wrapper around the other utility functions. The
 only thing it actually does is convert the query dict to an
 appropriate JSON string.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
         <tr>
-          <td><code>df_column</code></td>
-          <td>
-                <code>Series</code>
-          </td>
-          <td><p>A pandas Series to reconcile.</p></td>
-          <td>
-              <em>required</em>
-          </td>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
         </tr>
-        <tr>
-          <td><code>type_id</code></td>
-          <td>
-                <code>str</code>
-          </td>
-          <td><p>A string specifying the item type to reconcile against,
-in Wikidata this corresponds to the 'instance of' property of an item.</p></td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>property_mapping</code></td>
-          <td>
-                <code>dict</code>
-          </td>
-          <td><p>Property-column mapping of the items you want to
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>df_column</code>
+            </td>
+            <td>
+                  <code>Series</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A pandas Series to reconcile.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>type_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A string specifying the item type to reconcile against,
+in Wikidata this corresponds to the 'instance of' property of an item.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>property_mapping</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Property-column mapping of the items you want to
 reconcile against. For example, {"P17": df['country']} to reconcile
 against items that have the property country equals to the values
-in the column country. This is optional and defaults to None.</p></td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>reconciliation_endpoint</code></td>
-          <td>
-                <code>str</code>
-          </td>
-          <td><p>A url to the reconciliation endpoint.</p></td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+in the column country. This is optional and defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reconciliation_endpoint</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A url to the reconciliation endpoint.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
         <tr>
-<td><code>tuple</code></td>          <td>
-          </td>
-          <td><p>A tuple containing the list of the original values
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>tuple</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A tuple containing the list of the original values
 sent to reconciliation and a dictionary (JSON)
-with the query results.</p></td>
-        </tr>
-    </tbody>
-  </table>
+with the query results.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
-      <details class="quote">
-        <summary>Source code in <code>reconciler/webutils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">60</span>
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>reconciler/webutils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">60</span>
 <span class="normal">61</span>
 <span class="normal">62</span>
 <span class="normal">63</span>
@@ -874,10 +1161,10 @@ with the query results.</p></td>
 <span class="normal">96</span>
 <span class="normal">97</span>
 <span class="normal">98</span>
-<span class="normal">99</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">return_reconciled_raw</span><span class="p">(</span>
+<span class="normal">99</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">return_reconciled_raw</span><span class="p">(</span>
     <span class="n">df_column</span><span class="p">,</span> <span class="n">type_id</span><span class="p">,</span> <span class="n">property_mapping</span><span class="p">,</span> <span class="n">reconciliation_endpoint</span>
 <span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Send reformatted dict for reconciliation</span>
+<span class="w">    </span><span class="sd">"""Send reformatted dict for reconciliation</span>
 
 <span class="sd">    This is just a wrapper around the other utility functions. The</span>
 <span class="sd">    only thing it actually does is convert the query dict to an</span>
@@ -886,9 +1173,9 @@ with the query results.</p></td>
 <span class="sd">    Args:</span>
 <span class="sd">        df_column (Series): A pandas Series to reconcile.</span>
 <span class="sd">        type_id (str): A string specifying the item type to reconcile against,</span>
-<span class="sd">            in Wikidata this corresponds to the &#39;instance of&#39; property of an item.</span>
+<span class="sd">            in Wikidata this corresponds to the 'instance of' property of an item.</span>
 <span class="sd">        property_mapping (dict): Property-column mapping of the items you want to</span>
-<span class="sd">            reconcile against. For example, {&quot;P17&quot;: df[&#39;country&#39;]} to reconcile</span>
+<span class="sd">            reconcile against. For example, {"P17": df['country']} to reconcile</span>
 <span class="sd">            against items that have the property country equals to the values</span>
 <span class="sd">            in the column country. This is optional and defaults to None.</span>
 <span class="sd">        reconciliation_endpoint (str): A url to the reconciliation endpoint.</span>
@@ -898,7 +1185,7 @@ with the query results.</p></td>
 <span class="sd">            sent to reconciliation and a dictionary (JSON)</span>
 <span class="sd">            with the query results.</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">input_keys</span><span class="p">,</span> <span class="n">reformatted</span> <span class="o">=</span> <span class="n">get_query_dict</span><span class="p">(</span><span class="n">df_column</span><span class="p">,</span> <span class="n">type_id</span><span class="p">,</span> <span class="n">property_mapping</span><span class="p">)</span>
 
@@ -906,8 +1193,8 @@ with the query results.</p></td>
     <span class="n">chunked_dict</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">chunk_dictionary</span><span class="p">(</span><span class="n">reformatted</span><span class="p">))</span>
 
     <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">chunked_dict</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;reconciling: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">chunk</span><span class="p">)</span>
-        <span class="n">reconcilable_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;queries&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">chunk</span><span class="p">)})</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">'reconciling: </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">chunk</span><span class="p">)</span>
+        <span class="n">reconcilable_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">"queries"</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">chunk</span><span class="p">)})</span>
         <span class="n">query_result</span> <span class="o">=</span> <span class="n">perform_query</span><span class="p">(</span><span class="n">reconcilable_data</span><span class="p">,</span> <span class="n">reconciliation_endpoint</span><span class="p">)</span>
         <span class="n">query_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">query_result</span><span class="p">)</span>
 
@@ -915,8 +1202,8 @@ with the query results.</p></td>
 
     <span class="k">return</span> <span class="n">input_keys</span><span class="p">,</span> <span class="n">merged_results</span>
 </code></pre></div></td></tr></table></div>
-      </details>
-  </div>
+            </details>
+    </div>
 
 </div><p><strong>parse_raw_results()</strong></p>
 
@@ -924,67 +1211,87 @@ with the query results.</p></td>
 <div class="doc doc-object doc-function">
 
 
+
 <a id="reconciler.main.parse_raw_results"></a>
-  <div class="doc doc-contents first">
-  
-      <p>Parse JSON query result</p>
+    <div class="doc doc-contents first">
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>input_keys</code></td>
-          <td>
-                <code>list</code>
-          </td>
-          <td><p>A list with the original input values
-that were used to reconcile.</p></td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>response</code></td>
-          <td>
-                <code>dict</code>
-          </td>
-          <td><p>A dict corresponding to the raw JSON response
-from the reconciliation API.</p></td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        <p>Parse JSON query result</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>DataFrame</code></td>          <td>
-          </td>
-          <td><p>A Pandas DataFrame with all the results.</p></td>
-        </tr>
-    </tbody>
-  </table>
 
-      <details class="quote">
-        <summary>Source code in <code>reconciler/webutils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">102</span>
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>input_keys</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list with the original input values
+that were used to reconcile.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>response</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dict corresponding to the raw JSON response
+from the reconciliation API.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>DataFrame</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A Pandas DataFrame with all the results.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>reconciler/webutils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">102</span>
 <span class="normal">103</span>
 <span class="normal">104</span>
 <span class="normal">105</span>
@@ -1025,8 +1332,8 @@ from the reconciliation API.</p></td>
 <span class="normal">140</span>
 <span class="normal">141</span>
 <span class="normal">142</span>
-<span class="normal">143</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">parse_raw_results</span><span class="p">(</span><span class="n">input_keys</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="normal">143</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">parse_raw_results</span><span class="p">(</span><span class="n">input_keys</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Parse JSON query result</span>
 
 <span class="sd">    Args:</span>
@@ -1037,41 +1344,48 @@ from the reconciliation API.</p></td>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        DataFrame: A Pandas DataFrame with all the results.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">res_keys</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 
     <span class="n">dfs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">res_keys</span><span class="p">):</span>
 
-        <span class="n">current_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;result&quot;</span><span class="p">])</span>
+        <span class="n">current_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">"result"</span><span class="p">])</span>
 
         <span class="k">if</span> <span class="n">current_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
             <span class="n">current_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
                 <span class="p">{</span>
-                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">],</span>
-                    <span class="s2">&quot;match&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">],</span>
+                    <span class="s2">"id"</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+                    <span class="s2">"match"</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">],</span>
                 <span class="p">}</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">current_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;features&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-                <span class="n">current_df</span><span class="p">[</span><span class="s2">&quot;type_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current_df</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]]</span>
-                <span class="n">current_df</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current_df</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]]</span>
+                <span class="n">current_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">"features"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">current_df</span><span class="p">[</span><span class="s2">"type_id"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"id"</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current_df</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]]</span>
+                <span class="n">current_df</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">current_df</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]]</span>
             <span class="k">except</span> <span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">):</span>
                 <span class="k">pass</span>
 
-        <span class="n">current_df</span><span class="p">[</span><span class="s2">&quot;input_value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">input_keys</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">current_df</span><span class="p">[</span><span class="s2">"input_value"</span><span class="p">]</span> <span class="o">=</span> <span class="n">input_keys</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
         <span class="n">dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_df</span><span class="p">)</span>
 
     <span class="n">concatenated</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">concatenated</span>
 </code></pre></div></td></tr></table></div>
-      </details>
-  </div>
+            </details>
+    </div>
 
 </div>
+
+
+
+
+
+
+
 
 
 
@@ -1082,6 +1396,7 @@ from the reconciliation API.</p></td>
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -1109,10 +1424,14 @@ from the reconciliation API.</p></td>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.4b2c34cd.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>

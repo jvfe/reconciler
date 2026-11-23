@@ -2,47 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://jvfe.github.io/reconciler/</loc>
-         <lastmod>2023-02-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2026-11-23</lastmod>
     </url>
     <url>
          <loc>https://jvfe.github.io/reconciler/authors/</loc>
-         <lastmod>2023-02-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2026-11-23</lastmod>
     </url>
     <url>
          <loc>https://jvfe.github.io/reconciler/contributing/</loc>
-         <lastmod>2023-02-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2026-11-23</lastmod>
     </url>
     <url>
          <loc>https://jvfe.github.io/reconciler/history/</loc>
-         <lastmod>2023-02-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2026-11-23</lastmod>
     </url>
     <url>
          <loc>https://jvfe.github.io/reconciler/installing/</loc>
-         <lastmod>2023-02-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2026-11-23</lastmod>
     </url>
     <url>
          <loc>https://jvfe.github.io/reconciler/examples/reconcile_cell_types/</loc>
-         <lastmod>2023-02-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2026-11-23</lastmod>
     </url>
     <url>
          <loc>https://jvfe.github.io/reconciler/reference/reconcile/</loc>
-         <lastmod>2023-02-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2026-11-23</lastmod>
     </url>
     <url>
          <loc>https://jvfe.github.io/reconciler/reference/utils/</loc>
-         <lastmod>2023-02-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2026-11-23</lastmod>
     </url>
     <url>
          <loc>https://jvfe.github.io/reconciler/reference/webutils/</loc>
-         <lastmod>2023-02-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2026-11-23</lastmod>
     </url>
 </urlset>
